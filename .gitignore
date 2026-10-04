@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# Dateien, die die Beispiele beim Ausprobieren anlegen
+beispiele/notizen.txt
+beispiele/highscores.txt
+beispiele/geraete.json

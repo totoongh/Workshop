@@ -1,0 +1,424 @@
+/* Arbeitsauftrag Workshop "Programmieren" – Druckvorlage A4 */
+
+:root {
+  --ink: #172027;
+  --muted: #56616a;
+  --line: #c9d1d6;
+  --line-strong: #8f9aa2;
+  --paper-soft: #f4f6f7;
+  --teal: #087f82;
+  --teal-soft: #e8f3f3;
+  --purple: #6852a3;
+  --purple-soft: #efebf7;
+  --orange: #b65a21;
+  --orange-soft: #fbf0e7;
+  --red: #be1e2d;
+  --mono: Consolas, Menlo, "Courier New", monospace;
+}
+
+@page {
+  size: A4;
+  margin: 16mm 17mm 17mm;
+  @top-left {
+    content: "Workshop „Programmieren“  ·  Arbeitsauftrag";
+    font: 7.5pt Arial, Helvetica, sans-serif;
+    color: #6b767e;
+    vertical-align: bottom;
+    padding-bottom: 4mm;
+  }
+  @bottom-left {
+    content: "Fachinformatiker*in für Daten- und Prozessanalyse  ·  1. Ausbildungsjahr";
+    font: 7.5pt Arial, Helvetica, sans-serif;
+    color: #6b767e;
+    vertical-align: top;
+    padding-top: 4mm;
+  }
+  @bottom-right {
+    content: "Seite " counter(page) " / " counter(pages);
+    font: bold 7.5pt Arial, Helvetica, sans-serif;
+    color: #087f82;
+    vertical-align: top;
+    padding-top: 4mm;
+  }
+}
+
+@page cover {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+@page einlage {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.42;
+  hyphens: auto;
+}
+
+p { margin: 0 0 2.2mm; }
+ul, ol { margin: 0 0 2.5mm; padding-left: 5mm; }
+li { margin-bottom: 0.6mm; }
+b, strong { font-weight: bold; }
+a { color: var(--teal); text-decoration: none; }
+
+code {
+  hyphens: none;
+  overflow-wrap: anywhere;
+  font-family: var(--mono);
+  font-size: 9pt;
+  background: var(--paper-soft);
+  border-radius: 1mm;
+  padding: 0.2mm 1mm;
+}
+
+/* ---------- Teile ---------- */
+
+section.teil { break-before: page; }
+section.teil.weiter { break-before: auto; margin-top: 9mm; }
+
+.kicker {
+  font-size: 8.5pt;
+  font-weight: bold;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 1.5mm;
+}
+.kicker::before {
+  content: "";
+  display: block;
+  width: 11mm;
+  height: 1.4mm;
+  background: var(--teal);
+  margin-bottom: 3mm;
+}
+.anhang .kicker { color: var(--purple); }
+.anhang .kicker::before { background: var(--purple); }
+
+h1 {
+  hyphens: manual;
+  font-size: 21pt;
+  line-height: 1.15;
+  margin: 0 0 2.5mm;
+  letter-spacing: -0.01em;
+}
+.lead {
+  font-size: 11pt;
+  color: var(--muted);
+  margin: 0 0 4.5mm;
+  max-width: 165mm;
+}
+h2 {
+  font-size: 12.5pt;
+  margin: 5mm 0 2mm;
+  break-after: avoid;
+}
+h3 {
+  font-size: 10.6pt;
+  margin: 3.2mm 0 1.2mm;
+  break-after: avoid;
+}
+.zeit {
+  display: inline-block;
+  font-size: 8.5pt;
+  font-weight: bold;
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-radius: 10mm;
+  padding: 0.6mm 2.6mm;
+  margin-left: 2mm;
+  vertical-align: 1.5pt;
+}
+.anhang .zeit { color: var(--purple); background: var(--purple-soft); }
+
+.klein { font-size: 8.8pt; color: var(--muted); }
+.muted { color: var(--muted); }
+
+/* ---------- Boxen ---------- */
+
+.box {
+  border-radius: 2.5mm;
+  padding: 3.2mm 4.5mm;
+  margin: 2.5mm 0 3.5mm;
+  break-inside: avoid;
+}
+.box > :last-child { margin-bottom: 0; }
+.box h3:first-child, .box h2:first-child { margin-top: 0; }
+.box.teal { background: var(--teal-soft); }
+.box.purple { background: var(--purple-soft); }
+.box.orange { background: var(--orange-soft); }
+.box.grau { background: var(--paper-soft); }
+.box.rahmen { border: 1px solid var(--line); }
+.box-titel {
+  font-size: 8.5pt;
+  font-weight: bold;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0 0 2mm;
+}
+.teal .box-titel { color: var(--teal); }
+.purple .box-titel { color: var(--purple); }
+.orange .box-titel { color: var(--orange); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+.grid2 > .box, .grid3 > .box { margin: 0; }
+
+/* ---------- Nummerierte Regeln / Schritte ---------- */
+
+.regeln { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; margin: 2mm 0 4mm; }
+.regel {
+  display: grid;
+  grid-template-columns: 8mm 1fr;
+  gap: 0 3mm;
+  break-inside: avoid;
+}
+.nr {
+  width: 8mm;
+  height: 8mm;
+  border-radius: 2mm;
+  background: var(--teal);
+  color: white;
+  font-weight: bold;
+  font-size: 11pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anhang .nr { background: var(--purple); }
+.regel h3 { margin: 0.6mm 0 1mm; }
+.regel p { margin: 0; font-size: 9.6pt; }
+
+.schritte { margin: 2mm 0 4mm; }
+.schritt {
+  display: grid;
+  grid-template-columns: 8mm 1fr;
+  gap: 0 4mm;
+  margin-bottom: 2.6mm;
+  break-inside: avoid;
+}
+.schritt h3 { margin: 0.6mm 0 0.8mm; }
+.schritt p { margin: 0 0 1mm; }
+
+/* ---------- Tabellen ---------- */
+
+table { width: 100%; border-collapse: collapse; margin: 1.5mm 0 3.5mm; font-size: 9.2pt; break-inside: auto; }
+tr { break-inside: avoid; }
+th, td { border-bottom: 1px solid var(--line); padding: 1.5mm 2.2mm; text-align: left; vertical-align: top; }
+th { font-size: 8.3pt; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-bottom: 1.4px solid var(--line-strong); }
+table.gitter th, table.gitter td { border: 1px solid var(--line-strong); }
+table.gitter th { background: var(--paper-soft); color: var(--ink); }
+table.gitter td { height: 8mm; }
+td.tag { font-weight: bold; white-space: nowrap; width: 22mm; }
+td.uhr { white-space: nowrap; width: 26mm; color: var(--muted); font-variant-numeric: tabular-nums; }
+tr.extern td { color: var(--muted); font-style: italic; }
+tr.tagstart td { border-top: 1.4px solid var(--line-strong); }
+
+/* ---------- Checkboxen & Schreiblinien ---------- */
+
+.cb {
+  display: inline-block;
+  width: 3.8mm;
+  height: 3.8mm;
+  border: 1.2px solid var(--ink);
+  border-radius: 0.8mm;
+  vertical-align: -0.6mm;
+  margin-right: 1.5mm;
+  background: white;
+}
+table.check td:first-child { width: 8mm; text-align: center; }
+table.check td:first-child .cb { margin: 0; }
+table.check td.fund { width: 50mm; border-left: 1px dashed var(--line); }
+table.check th.fund { border-left: 1px dashed var(--line); }
+table.check tr.gruppe td {
+  background: var(--paper-soft);
+  font-weight: bold;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding-top: 1.5mm;
+  padding-bottom: 1.5mm;
+}
+
+.linien div { height: 7mm; border-bottom: 1px solid var(--line-strong); }
+.linien.eng div { height: 6.2mm; }
+.feld { margin: 0 0 3mm; break-inside: avoid; }
+.feld-label { font-size: 8.5pt; font-weight: bold; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---------- Stufen ---------- */
+
+.stufe {
+  display: inline-block;
+  min-width: 15mm;
+  text-align: center;
+  hyphens: none;
+  white-space: nowrap;
+  font-size: 7.5pt;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 1mm;
+  padding: 0.4mm 1.5mm;
+  margin-right: 1.5mm;
+  vertical-align: 0.6pt;
+}
+.stufe.b { background: var(--teal-soft); color: var(--teal); border: 1px solid var(--teal); }
+.stufe.a { background: var(--orange-soft); color: var(--orange); border: 1px solid var(--orange); }
+.stufe.p { background: var(--purple-soft); color: var(--purple); border: 1px solid var(--purple); }
+
+/* ---------- Ideenpool ---------- */
+
+.ideen { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.idee { border: 1px solid var(--line); border-radius: 2.5mm; padding: 3.5mm 4mm; break-inside: avoid; }
+.idee h3 { margin: 0 0 1mm; font-size: 10.8pt; }
+.idee .art { font-size: 7.5pt; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.idee p { font-size: 9.2pt; margin: 0 0 2mm; }
+.idee ul { list-style: none; padding: 0; margin: 0; }
+.idee li { font-size: 8.9pt; margin-bottom: 1.2mm; display: grid; grid-template-columns: 18.5mm 1fr; align-items: start; }
+.idee li .stufe { margin: 0; min-width: 0; width: 16.5mm; }
+
+/* ---------- Code ---------- */
+
+pre {
+  font-family: var(--mono);
+  font-size: 8.6pt;
+  line-height: 1.36;
+  hyphens: none;
+  overflow-wrap: anywhere;
+  background: var(--paper-soft);
+  border-left: 1.2mm solid var(--teal);
+  border-radius: 0 2mm 2mm 0;
+  padding: 2.6mm 3.5mm;
+  margin: 1.5mm 0 3.5mm;
+  white-space: pre-wrap;
+  break-inside: avoid;
+}
+.anhang pre { border-left-color: var(--purple); }
+pre.terminal { background: #1f262c; color: #eef2f4; border-left-color: #56616a; }
+pre .k { color: #6a3fa0; font-weight: bold; }
+pre .s { color: #18794e; }
+pre .c { color: #7b858c; font-style: italic; }
+pre .f { color: #0b5f8a; }
+pre .n { color: #b65a21; }
+.code-titel { font-size: 8.3pt; font-weight: bold; color: var(--muted); margin: 3mm 0 -1mm; font-family: var(--mono); }
+
+.vorher-nachher { display: grid; grid-template-columns: 43fr 57fr; gap: 4mm; }
+.vorher-nachher pre { font-size: 7.6pt; }
+.vorher-nachher pre { margin: 1mm 0 0; height: calc(100% - 6mm); }
+.vorher pre { border-left-color: var(--orange); }
+.nachher pre { border-left-color: var(--teal); }
+.vn-label { font-size: 8.3pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; }
+.vorher .vn-label { color: var(--orange); }
+.nachher .vn-label { color: var(--teal); }
+
+/* ---------- Diagramme ---------- */
+
+.flow { display: flex; align-items: stretch; gap: 2mm; margin: 3mm 0 4mm; }
+.flow .station { flex: 1; border-radius: 2.5mm; padding: 3mm 3.5mm; font-size: 9.2pt; }
+.flow .station b { display: block; font-size: 10pt; margin-bottom: 0.8mm; }
+.flow .pfeil { display: flex; align-items: center; color: var(--line-strong); font-size: 14pt; }
+
+.ordner {
+  font-family: var(--mono);
+  font-size: 8.8pt;
+  line-height: 1.55;
+  background: var(--paper-soft);
+  border-radius: 2mm;
+  padding: 3mm 4mm;
+  margin: 2mm 0 4mm;
+  white-space: pre;
+  break-inside: avoid;
+}
+
+/* ---------- Deckblatt ---------- */
+
+.deckblatt {
+  page: cover;
+  width: 210mm;
+  height: 297mm;
+  padding: 14mm 16mm 15mm;
+  position: relative;
+  break-after: page;
+  font-size: 11pt;
+  line-height: 1.35;
+}
+.deckblatt header {
+  height: 20mm;
+  border-bottom: 1.2pt solid #29333b;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 3mm;
+  margin-bottom: 4mm;
+}
+.deckblatt header img { width: 58mm; height: 14mm; object-fit: contain; }
+.deckblatt h1 { font-size: 30pt; line-height: 1.1; margin: 4mm 0 1mm; letter-spacing: 0; }
+.deckblatt .untertitel { font-size: 19pt; margin: 0 0 3mm; }
+.deckblatt .cover-lead { font-size: 13pt; line-height: 1.45; margin-bottom: 6mm; }
+.cover-facts { display: flex; gap: 5mm; margin: 5mm 0; }
+.cover-facts div { flex: 1; border: 1px solid #9da5ab; padding: 4mm; font-size: 10.5pt; }
+.cover-facts strong { font-size: 21pt; display: block; line-height: 1.15; }
+.cover-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 10mm; margin: 5mm 0 6mm; }
+.cover-fields div { border-bottom: 1px solid #7e8991; padding-bottom: 8mm; font-size: 10.5pt; }
+.deckblatt h3 { font-size: 12pt; margin: 5mm 0 2mm; }
+.deckblatt p { margin: 0 0 2mm; font-size: 10.5pt; }
+.inhalt { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8mm; font-size: 9.6pt; margin-top: 1mm; }
+.inhalt .zeile { display: flex; gap: 2mm; padding: 1.1mm 0; border-bottom: 1px solid #dde2e5; }
+.inhalt .ix { width: 6mm; color: var(--muted); font-weight: bold; flex: none; }
+.inhalt .t { flex: 1; }
+.inhalt .pg { width: 7mm; text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.inhalt .kopf { border-bottom: 1.2px solid #8f9aa2; font-weight: bold; font-size: 8.3pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.deckblatt footer {
+  position: absolute;
+  bottom: 9mm;
+  left: 16mm;
+  right: 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #aab0b5;
+  padding-top: 2mm;
+  font-size: 8pt;
+  line-height: 1.2;
+  color: #535c63;
+}
+.deckblatt footer .identity span { display: block; }
+
+/* ---------- Platzhalter für eingefügte PDF-Seiten ---------- */
+
+.einlage { page: einlage; height: 290mm; break-before: page; break-after: page; }
+
+/* ---------- Bildschirmansicht ---------- */
+
+@media screen {
+  body { background: #e5e7eb; padding: 8mm 0; }
+  body > * { max-width: 210mm; margin-left: auto; margin-right: auto; background: white; }
+  section.teil { padding: 18mm 17mm; margin-bottom: 6mm; }
+  .einlage { display: none; }
+}
+
+.code-breit { display: grid; grid-template-columns: 60fr 40fr; gap: 4mm; }
+.code-breit pre { font-size: 8pt; }
+.rollen { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3mm; margin: 2mm 0 0; }
+.rollen .box { margin: 0; padding: 3mm 3.5mm; }
+.rollen p { font-size: 8.8pt; }
+table.check td, table.check th { padding-top: 0.95mm; padding-bottom: 0.95mm; font-size: 8.9pt; line-height: 1.35; }
+.regel p { font-size: 9.3pt; }

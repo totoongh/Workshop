@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Workshop „Programmieren“ · Arbeitsauftrag</title>
+<link rel="stylesheet" href="style.css">
+<script src="seiten.js"></script>
+</head>
+<body>
+
+<!-- ============================================================ DECKBLATT -->
+<section class="deckblatt">
+  <header><img src="assets/IT-Systemhaus-BA.png" alt="IT-Systemhaus der Bundesagentur für Arbeit"></header>
+  <h1>Workshop „Programmieren“</h1>
+  <div class="untertitel">in Python · Arbeitsauftrag</div>
+  <div class="cover-lead">Fachinformatiker*in für Daten- und Prozessanalyse<br>1. Ausbildungsjahr</div>
+
+  <div class="cover-facts">
+    <div><strong>5</strong>Tage Workshop</div>
+    <div><strong>3</strong>Teams</div>
+    <div><strong>1</strong>eigenes Programm pro Team</div>
+  </div>
+
+  <div class="cover-fields">
+    <div>Name, Vorname</div>
+    <div>Team</div>
+    <div>Unser Projekt</div>
+    <div>Mein Feature</div>
+  </div>
+
+  <h3>Hinweise</h3>
+  <p>Dieses Heft führt euch durch die Workshop-Woche. Die Teile 1 bis 5 gehen wir am Montag gemeinsam durch. Die Teile 6 bis 10 begleiten euch Phase für Phase. Im Anhang findet ihr Vorlagen, Werkzeuge und Exkurse zum Nachschlagen.</p>
+  <p>Den Code zum Workshop (Projektvorlage und Beispiele) findet ihr im GitHub-Repository <b>Workshop</b>. Wie ihr es holt, steht in Anhang F. Das Heft umfasst <b><span data-seiten="gesamt">__</span> Seiten</b> einschließlich dieses Deckblatts.</p>
+
+  <h3>Inhalt</h3>
+  <div class="inhalt">
+    <div class="spalte">
+      <div class="zeile kopf">Woche</div>
+      <div class="zeile"><span class="ix">1</span><span class="t">Worum es geht</span><span class="pg" data-ref="ziel"></span></div>
+      <div class="zeile"><span class="ix">2</span><span class="t">Ablauf der Woche</span><span class="pg" data-ref="ablauf"></span></div>
+      <div class="zeile"><span class="ix">3</span><span class="t">Regeln und Rollen im Team</span><span class="pg" data-ref="regeln"></span></div>
+      <div class="zeile"><span class="ix">4</span><span class="t">Woran wir ein gutes Ergebnis erkennen</span><span class="pg" data-ref="ergebnis"></span></div>
+      <div class="zeile"><span class="ix">5</span><span class="t">Checkliste für eure Lösung</span><span class="pg" data-ref="checkliste"></span></div>
+      <div class="zeile"><span class="ix">6</span><span class="t">Phase 1: Ideen finden</span><span class="pg" data-ref="ideen"></span></div>
+      <div class="zeile"><span class="ix">7</span><span class="t">Phase 2: Planen</span><span class="pg" data-ref="planen"></span></div>
+      <div class="zeile"><span class="ix">8</span><span class="t">Phase 3: Umsetzen</span><span class="pg" data-ref="umsetzen"></span></div>
+      <div class="zeile"><span class="ix">9</span><span class="t">Zwischenreview</span><span class="pg" data-ref="review"></span></div>
+      <div class="zeile"><span class="ix">10</span><span class="t">Präsentation und Reflexion</span><span class="pg" data-ref="praesentation"></span></div>
+    </div>
+    <div class="spalte">
+      <div class="zeile kopf">Anhang</div>
+      <div class="zeile"><span class="ix">A</span><span class="t">Programmieren mit System</span><span class="pg" data-ref="anhang-a"></span></div>
+      <div class="zeile"><span class="ix">B</span><span class="t">Steckbrief und „Mein Feature“</span><span class="pg" data-ref="anhang-b"></span></div>
+      <div class="zeile"><span class="ix">C</span><span class="t">Bogen Zwischenreview</span><span class="pg" data-ref="anhang-c"></span></div>
+      <div class="zeile"><span class="ix">D</span><span class="t">Bogen Präsentation</span><span class="pg" data-ref="anhang-d"></span></div>
+      <div class="zeile"><span class="ix">E</span><span class="t">Coding Conventions und Clean Code</span><span class="pg" data-ref="anhang-e"></span></div>
+      <div class="zeile"><span class="ix">F</span><span class="t">Basics: Arbeiten mit GitHub</span><span class="pg" data-ref="anhang-f"></span></div>
+      <div class="zeile"><span class="ix">G</span><span class="t">Bibliotheken: Standardmodule und pip</span><span class="pg" data-ref="anhang-g"></span></div>
+      <div class="zeile"><span class="ix">H</span><span class="t">Exkurs: Dateien und Datenströme</span><span class="pg" data-ref="anhang-h"></span></div>
+      <div class="zeile"><span class="ix">I</span><span class="t">Exkurs: Grafische Oberflächen</span><span class="pg" data-ref="anhang-i"></span></div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="identity"><span>Workshop „Programmieren“ · Python</span><span>Fachinformatiker*in für Daten- und Prozessanalyse</span><span>1. Ausbildungsjahr</span></span>
+    <span>Seite 1 / <span data-seiten="gesamt">__</span></span>
+  </footer>
+</section>
+
+<!-- ============================================================ 1 ZIEL -->
+<section class="teil" id="ziel">
+  <div class="kicker">Teil 1 · Ziel</div>
+  <h1>Worum es in dieser Woche geht</h1>
+  <p class="lead">Ihr entwickelt im Team ein eigenes Python-Programm: ein kleines Werkzeug für die IT-Administration oder ein Spiel. Ihr findet eine Idee, plant, programmiert, holt euch Feedback und stellt euer Programm am Freitag vor.</p>
+
+  <div class="box teal">
+    <div class="box-titel">Am Freitag habt ihr</div>
+    <ul>
+      <li>ein <b>lauffähiges Programm</b>, zu dem jede Person ein eigenes Feature beigetragen hat,</li>
+      <li>einen <b>Steckbrief</b>, der zeigt, wie ihr geplant habt,</li>
+      <li>eine <b>Präsentation</b> mit Live-Vorführung, in der jede Person ihren eigenen Code erklärt,</li>
+      <li><b>Feedback</b> von den anderen Teams und eine eigene <b>Reflexion</b>.</li>
+    </ul>
+  </div>
+
+  <h2>Das lernst du dabei</h2>
+  <div class="grid2">
+    <div>
+      <h3>Python-Grundlagen anwenden</h3>
+      <p>Variablen, Datentypen, Verzweigungen, Schleifen, Listen und Funktionen in einem echten Projekt einsetzen.</p>
+      <h3>Selbstständig kleine Programme erstellen</h3>
+      <p>Dein Feature planst und programmierst du selbst, Schritt für Schritt.</p>
+      <h3>Vorhandenen Code erweitern</h3>
+      <p>Ihr baut auf einer Projektvorlage auf und verbindet eure Teile zu einem gemeinsamen Programm.</p>
+      <h3>Sauberen Code schreiben</h3>
+      <p>So, dass andere ihn lesen, verstehen und weiterverwenden können.</p>
+    </div>
+    <div>
+      <h3>Wichtige Befehle effizient nutzen</h3>
+      <p>Code mit Git holen und aktualisieren, Module einbinden, Pakete installieren.</p>
+      <h3>Selbstständig und lösungsorientiert handeln</h3>
+      <p>Mit „Programmieren mit System“ (Anhang A) findest du auch dann einen nächsten Schritt, wenn du feststeckst.</p>
+      <h3>Im Team arbeiten</h3>
+      <p>Aufgaben verteilen, euch gegenseitig helfen, Feedback geben und annehmen.</p>
+    </div>
+  </div>
+
+  <div class="box purple">
+    <div class="box-titel">Unterschiedliche Erfahrung ist gewollt</div>
+    <p>Ihr bringt unterschiedlich viel Erfahrung mit. Das ist kein Problem, sondern Absicht. Jede Person wählt ein Feature, das zu ihr passt: <span class="stufe b">Basis</span><span class="stufe a">Aufbau</span><span class="stufe p">Profi</span>. Niemand muss alles können. Wichtig ist, dass du dein Feature <b>verstehst und erklären kannst</b>.</p>
+  </div>
+
+  <h2>Teams</h2>
+  <p>Die Teams stehen fest. Ihr arbeitet in drei Teams mit drei oder vier Personen. Jede Person übernimmt ein eigenes Feature und zusätzlich eine Rolle im Team (Teil 3).</p>
+
+</section>
+
+<!-- ============================================================ 2 ABLAUF -->
+<section class="teil" id="ablauf">
+  <div class="kicker">Teil 2 · Ablauf</div>
+  <h1>Ablauf der Woche</h1>
+  <p class="lead">Jede Phase endet mit einem sichtbaren Ergebnis. So wisst ihr jederzeit, wo ihr steht.</p>
+
+  <table>
+    <thead><tr><th>Tag</th><th>Zeit</th><th>Was passiert</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr class="tagstart extern"><td class="tag">Montag</td><td class="uhr">Vormittag</td><td>Pflicht-Übungsaufgaben zur Klausur</td><td>–</td></tr>
+      <tr><td></td><td class="uhr">Nachmittag</td><td><b>Start des Workshops:</b> Arbeitsauftrag gemeinsam durchgehen, Teams und Rollen, woran wir ein gutes Ergebnis erkennen (Teil 1–5)</td><td>Ihr wisst, was bis Freitag passiert.</td></tr>
+      <tr><td></td><td class="uhr">Nachmittag</td><td><b>Phase 1: Ideen finden</b> (Teil 6)</td><td>Eure Projektidee steht, Steckbrief Seite 1 ist begonnen.</td></tr>
+
+      <tr class="tagstart extern"><td class="tag">Dienstag</td><td class="uhr">08:45</td><td>Klausur, danach Pause</td><td>–</td></tr>
+      <tr><td></td><td class="uhr">10:05 – 11:45</td><td><b>Phase 2: Planen</b> (Teil 7): Features festlegen und verteilen, „Mein Feature“ ausfüllen</td><td>Steckbrief fertig und vom Ausbilder angeschaut.</td></tr>
+      <tr class="extern"><td></td><td class="uhr">11:45 – 12:45</td><td>Mittagspause</td><td></td></tr>
+      <tr><td></td><td class="uhr">ab 12:45</td><td><b>Phase 3: Umsetzen</b> (Teil 8): Projektordner anlegen, erste Teilschritte programmieren</td><td>Jede Person hat einen ersten lauffähigen Teilschritt.</td></tr>
+
+      <tr class="tagstart"><td class="tag">Mittwoch</td><td class="uhr">Vormittag</td><td><b>Umsetzen:</b> Muss-Features fertigstellen, Dateien zusammenführen</td><td>Das Programm startet und hat die Muss-Features.</td></tr>
+      <tr><td></td><td class="uhr">Nachmittag</td><td><b>Zwischenreview</b> (Teil 9): Je zwei Teams schauen sich gegenseitig Programm und Code an.</td><td>Ihr habt Feedback und wisst, was ihr verbessern wollt.</td></tr>
+
+      <tr class="tagstart"><td class="tag">Donnerstag</td><td class="uhr">ganztags</td><td><b>Umsetzen:</b> Feedback einarbeiten, Soll-Features, <b>Exkurse für Fortgeschrittene</b> (Anhang G–I), Clean-Code-Durchgang, Präsentation vorbereiten</td><td>Das Programm ist fertig, die Präsentation steht.</td></tr>
+
+      <tr class="tagstart"><td class="tag">Freitag</td><td class="uhr">ganztags</td><td><b>Präsentation und Vorführung</b> (Teil 10): Jemand aus einem anderen Team bedient euer Programm. Danach Feedback und Reflexion.</td><td>Ihr habt euer Programm gezeigt und blickt auf die Woche zurück.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Jeden Tag</h2>
+  <div class="grid2">
+    <div class="box teal">
+      <div class="box-titel">Zum Start: 5-Minuten-Stand-up</div>
+      <p>Jede Person beantwortet kurz drei Fragen:</p>
+      <ol>
+        <li>Was habe ich seit gestern geschafft?</li>
+        <li>Was nehme ich mir heute vor?</li>
+        <li>Wo hänge ich oder brauche ich Hilfe?</li>
+      </ol>
+    </div>
+    <div class="box teal">
+      <div class="box-titel">Zum Schluss: Integrationscheck</div>
+      <ol>
+        <li>Alle bringen ihren aktuellen Stand zusammen (Teil 8).</li>
+        <li><code>main.py</code> starten: Läuft alles zusammen?</li>
+        <li>Checkliste (Teil 5) anschauen: Was ist neu erfüllt?</li>
+        <li>Steckbrief aktualisieren: Was ist erledigt, was kommt morgen?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 3 REGELN -->
+<section class="teil" id="regeln">
+  <div class="kicker">Teil 3 · Regeln und Rollen</div>
+  <h1>Regeln und Rollen im Team</h1>
+  <p class="lead">Diese Regeln sorgen dafür, dass jede Person etwas lernt und niemand allein alles macht.</p>
+
+  <div class="regeln">
+    <div class="regel"><div class="nr">1</div><div><h3>Jede Person hat ihr eigenes Feature.</h3><p>In einer eigenen Datei, mit mindestens einer eigenen Funktion. So ist klar, wer wofür zuständig ist.</p></div></div>
+    <div class="regel"><div class="nr">2</div><div><h3>Wer tippt, entscheidet.</h3><p>An deinem Feature hast du die Tastatur. Die anderen helfen als Navigator: Sie stellen Fragen, statt vorzusagen oder selbst zu tippen.</p></div></div>
+    <div class="regel"><div class="nr">3</div><div><h3>Erst planen, dann programmieren.</h3><p>Bevor du Code schreibst, steht dein Feature als Teilschritte oder Pseudocode auf Papier („Mein Feature“, Anhang B).</p></div></div>
+    <div class="regel"><div class="nr">4</div><div><h3>Klein anfangen.</h3><p>Erst Muss, dann Soll, dann Kann. Ein kleines Programm, das läuft, ist mehr wert als ein großes, das nicht läuft.</p></div></div>
+    <div class="regel"><div class="nr">5</div><div><h3>Steckenbleiben ist normal. Aufgeben nicht.</h3><p>Wenn du nicht weiterkommst, gilt die 10-20-Regel (unten). Es gibt immer einen nächsten Schritt.</p></div></div>
+    <div class="regel"><div class="nr">6</div><div><h3>Jede Person erklärt ihren eigenen Code.</h3><p>Am Freitag zeigst du dein Feature selbst. Schreibe deshalb nur Code, den du erklären kannst.</p></div></div>
+    <div class="regel"><div class="nr">7</div><div><h3>KI ist eine Lernhilfe, kein Lösungsautomat.</h3><p>Lass dir Dinge erklären, nicht die Lösung schreiben. Was du übernimmst, musst du Zeile für Zeile erklären können. Markiere KI-Hilfe mit einem Kommentar.</p></div></div>
+    <div class="regel"><div class="nr">8</div><div><h3>Feedback ist freundlich und konkret.</h3><p>Sprecht über Code, nicht über Menschen. „Den Namen <code>x</code> verstehe ich nicht“ statt „Das ist schlecht“.</p></div></div>
+  </div>
+
+  <h2>Die 10-20-Regel: Wenn du feststeckst</h2>
+  <div class="flow">
+    <div class="station box grau" style="margin:0"><b>0 bis 10 Minuten: allein</b>Geh die Schritte aus „Programmieren mit System“ durch (Anhang A). Mach das Problem kleiner, teste eine Vermutung mit <code>print()</code>.</div>
+    <div class="pfeil">➜</div>
+    <div class="station box teal" style="margin:0"><b>Nach 10 Minuten: Team fragen</b>Frag mit der Hilfe-Formel: „Ich möchte X erreichen. Ich habe Y versucht. Ich erwarte A, bekomme aber B.“</div>
+    <div class="pfeil">➜</div>
+    <div class="station box purple" style="margin:0"><b>Nach 20 Minuten: Ausbilder fragen</b>Kommt ihr auch zusammen nicht weiter, holt ihr den Ausbilder dazu. Das ist kein Scheitern, sondern effizient.</div>
+  </div>
+
+  <h2>Rollen im Team</h2>
+  <p>Zusätzlich zu ihrem Feature übernimmt jede Person eine Rolle. In Dreierteams übernimmt eine Person zwei Rollen.</p>
+  <div class="rollen">
+    <div class="box grau"><div class="box-titel">Planung</div><p>Hält den Steckbrief aktuell und achtet darauf, dass erst die Muss-Features fertig werden.</p></div>
+    <div class="box grau"><div class="box-titel">Test</div><p>Probiert die Features der anderen aus, auch mit falschen Eingaben, und meldet Fehler an die zuständige Person.</p></div>
+    <div class="box grau"><div class="box-titel">Integration</div><p>Sammelt die Dateien, baut die Features in <code>main.py</code> ein und startet täglich das ganze Programm.</p></div>
+    <div class="box grau"><div class="box-titel">Moderation</div><p>Leitet Stand-up und Integrationscheck, achtet auf die Zeit und organisiert die Präsentation.</p></div>
+  </div>
+</section>
+
+<!-- ============================================================ 4 ERGEBNIS -->
+<section class="teil" id="ergebnis">
+  <div class="kicker">Teil 4 · Ergebnis</div>
+  <h1>Woran wir ein gutes Ergebnis erkennen</h1>
+  <p class="lead">Diese Merkmale beschreiben, wohin ihr arbeitet. Sie sind die Grundlage für das Feedback im Zwischenreview und nach der Präsentation.</p>
+
+  <div class="box orange">
+    <div class="box-titel">Keine Punkte, keine Noten</div>
+    <p>Im Workshop wird nichts benotet. Alle Rückmeldungen sind <b>qualitativ</b>: Was ist gelungen, was könnt ihr noch verbessern? Größer ist dabei nicht besser. Ein kleines Programm, das sauber läuft und das alle erklären können, ist ein sehr gutes Ergebnis.</p>
+  </div>
+
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><div><h3>Es läuft.</h3><p>Das Programm startet, die Muss-Features funktionieren, und es stürzt bei einer falschen Eingabe nicht ab.</p><p class="klein">Leitfrage: Was passiert, wenn ich im Menü „x“ eingebe?</p></div></div>
+    <div class="schritt"><div class="nr">2</div><div><h3>Man kann es bedienen.</h3><p>Texte und Menü sind verständlich. Eine Person aus einem anderen Team kommt ohne eure Hilfe zurecht.</p><p class="klein">Leitfrage: Weiß ich als fremde Person jederzeit, was ich eingeben soll?</p></div></div>
+    <div class="schritt"><div class="nr">3</div><div><h3>Die Seminarinhalte sind sichtbar.</h3><p>Ihr setzt ein, was ihr im Seminar gelernt habt. Die Checkliste in Teil 5 zeigt, was dazugehört.</p><p class="klein">Leitfrage: Wo im Code steht die for-Schleife, wo die eigene Funktion?</p></div></div>
+    <div class="schritt"><div class="nr">4</div><div><h3>Der Code ist sauber.</h3><p>Namen sind verständlich, Funktionen erledigen jeweils eine Aufgabe, nichts ist unnötig doppelt (Anhang E).</p><p class="klein">Leitfrage: Könnte jemand aus einem anderen Team ein Feature erweitern?</p></div></div>
+    <div class="schritt"><div class="nr">5</div><div><h3>Jede Person hat ihren Teil.</h3><p>Jede Person hat ein erkennbares Feature beigetragen und kann es zeigen und erklären.</p><p class="klein">Leitfrage: Was macht diese Funktion, und warum steht diese Zeile hier?</p></div></div>
+    <div class="schritt"><div class="nr">6</div><div><h3>Das Vorgehen ist nachvollziehbar.</h3><p>Steckbrief, Teilschritte und Tests zeigen, wie ihr vorgegangen seid. Feedback aus dem Zwischenreview habt ihr aufgegriffen.</p><p class="klein">Leitfrage: Was habt ihr nach dem Zwischenreview geändert?</p></div></div>
+    <div class="schritt"><div class="nr">7</div><div><h3>Ihr habt als Team gearbeitet.</h3><p>Absprachen eingehalten, Hilfe gegeben und angenommen, Rollen ausgefüllt.</p><p class="klein">Leitfrage: Wie habt ihr entschieden, wer was macht?</p></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ 5 CHECKLISTE -->
+<section class="teil" id="checkliste">
+  <div class="kicker">Teil 5 · Checkliste</div>
+  <h1>Checkliste für eure Lösung</h1>
+  <p class="lead">Das gehört in euer Team-Programm. Nicht jede Person muss alles einbauen. Tragt ein, wo es steht, das hilft im Zwischenreview und bei der Präsentation.</p>
+
+  <table class="check">
+    <thead><tr><th></th><th>Merkmal</th><th class="fund">Wo steht es? (Datei / Funktion)</th></tr></thead>
+    <tbody>
+      <tr class="gruppe"><td></td><td colspan="2">Python-Grundlagen aus dem Seminar</td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Variablen</b> mit verständlichen Namen speichern die Werte, die das Programm braucht.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Verschiedene <b>Datentypen</b> sind sinnvoll eingesetzt: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Eingaben</b> mit <code>input()</code> werden bei Bedarf umgewandelt, z. B. mit <code>int()</code> oder <code>float()</code>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Ausgaben</b> mit <code>print()</code> sind verständlich formuliert.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Rechnen oder Texte verarbeiten</b>, z. B. mit <code>+</code>, <code>*</code>, <code>//</code>, <code>%</code> oder <code>str()</code>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Vergleiche</b> (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;=</code> …) und <b>Verknüpfungen</b> (<code>and</code>, <code>or</code>, <code>not</code>).</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Verzweigung</b> mit <code>if</code>, <code>elif</code> und <code>else</code>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>while-Schleife</b>, z. B. für das Menü oder um eine falsche Eingabe zu wiederholen.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>for-Schleife</b> mit <code>range()</code> oder über eine Liste.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Liste</b>: anlegen, mit <code>append()</code> erweitern, mit <code>len()</code> zählen, durchlaufen.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td><b>Eigene Funktionen</b> mit Parametern und <code>return</code>. Jede Person schreibt mindestens eine.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Mindestens ein <b>Modul</b> ist eingebunden und genutzt, z. B. <code>random</code>, <code>math</code> oder <code>time</code> (Anhang G).</td><td class="fund"></td></tr>
+
+      <tr class="gruppe"><td></td><td colspan="2">Aufbau und Qualität</td></tr>
+      <tr><td><span class="cb"></span></td><td><code>main.py</code> zeigt ein Menü. Jedes Feature liegt in einer <b>eigenen Datei</b>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Jede Feature-Datei lässt sich auch <b>einzeln starten und testen</b>.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Bei einer <b>falschen Eingabe</b> stürzt das Programm nicht ab, sondern fragt erneut.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Mindestens eine Funktion ist mit <b>Schreibtischtest oder Debugger</b> überprüft.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Der <b>Clean-Code-Check</b> aus Anhang E ist für jede Datei gemacht.</td><td class="fund"></td></tr>
+
+      <tr class="gruppe"><td></td><td colspan="2">Vorgehen</td></tr>
+      <tr><td><span class="cb"></span></td><td>Der <b>Steckbrief</b> ist ausgefüllt und vom Ausbilder angeschaut.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Jede Person hat ihr Feature mit <b>Teilschritten oder Pseudocode</b> geplant.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Mindestens ein Punkt aus dem <b>Zwischenreview</b> ist umgesetzt.</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Die <b>Präsentation</b> ist vorbereitet. Jede Person kann ihren Code erklären.</td><td class="fund"></td></tr>
+
+      <tr class="gruppe"><td></td><td colspan="2">Zusatz für Fortgeschrittene (freiwillig)</td></tr>
+      <tr><td><span class="cb"></span></td><td>Daten werden in einer <b>Datei</b> gespeichert und wieder geladen (Anhang H).</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Ein Teil hat eine <b>grafische Oberfläche</b> mit tkinter (Anhang I).</td><td class="fund"></td></tr>
+      <tr><td><span class="cb"></span></td><td>Ein <b>externes Paket</b> ist per pip installiert und genutzt (Anhang G).</td><td class="fund"></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ 6 IDEEN -->
+<section class="teil" id="ideen">
+  <div class="kicker">Teil 6 · Phase 1 <span class="zeit">Montag, Nachmittag</span></div>
+  <h1>Phase 1: Ideen finden</h1>
+  <p class="lead">Ihr entscheidet euch für ein Admin-Werkzeug oder ein Spiel. Auf den nächsten beiden Seiten findet ihr konkrete Vorschläge. Eine eigene Idee ist ausdrücklich willkommen.</p>
+
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><div><h3>Allein sammeln <span class="zeit">5 min</span></h3><p>Jede Person notiert für sich drei Ideen. Schaut dafür in den Ideenpool oder überlegt, was euch im Alltag nützen oder Spaß machen würde.</p></div></div>
+    <div class="schritt"><div class="nr">2</div><div><h3>Vorstellen <span class="zeit">15 min</span></h3><p>Reihum stellt jede Person ihre Ideen in einem Satz vor. Noch keine Kritik, nur Rückfragen zum Verständnis.</p></div></div>
+    <div class="schritt"><div class="nr">3</div><div><h3>Prüfen <span class="zeit">15 min</span></h3><p>Geht mit den Prüffragen (unten) durch die Ideen. Streicht, was nicht passt. Ideen lassen sich auch kombinieren.</p></div></div>
+    <div class="schritt"><div class="nr">4</div><div><h3>Entscheiden <span class="zeit">10 min</span></h3><p>Jede Person hat drei Striche und verteilt sie auf die übrigen Ideen. Bei Gleichstand: kurz diskutieren und noch einmal abstimmen.</p></div></div>
+    <div class="schritt"><div class="nr">5</div><div><h3>Festhalten <span class="zeit">10 min</span></h3><p>Tragt Projektname und Idee in einem Satz in den Steckbrief ein (Anhang B). Sammelt erste Features für das Menü. Verteilt werden sie erst am Dienstag.</p></div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="box teal">
+      <div class="box-titel">Prüffragen für eine gute Idee</div>
+      <ul>
+        <li>Läuft eine einfache Version schon <b>bis Mittwochmittag</b>?</li>
+        <li>Gibt es für <b>jede Person ein eigenes Feature</b>, auf ihrer Stufe?</li>
+        <li>Lässt es sich als <b>Menü mit mehreren Punkten</b> bauen?</li>
+        <li>Kommen <b>Seminarinhalte</b> darin vor (Checkliste, Teil 5)?</li>
+        <li>Habt ihr <b>Lust</b> darauf?</li>
+      </ul>
+    </div>
+    <div class="box purple">
+      <div class="box-titel">Ein Menü verbindet alles</div>
+      <p>Fast jede Idee lässt sich so aufbauen: <code>main.py</code> zeigt ein Menü, und jeder Menüpunkt ist ein Feature einer Person.</p>
+      <p class="klein" style="margin-top:2mm">Beispiel Passwort-Werkstatt:<br>1 – Passwort erzeugen <span class="stufe b">Basis</span><br>2 – Passwort prüfen <span class="stufe a">Aufbau</span><br>3 – Merksatz-Passwort <span class="stufe a">Aufbau</span><br>4 – Passwörter speichern <span class="stufe p">Profi</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="teil" id="ideenpool">
+  <div class="kicker">Teil 6 · Ideenpool</div>
+  <h1>Ideenpool: Admin-Werkzeuge</h1>
+  <p class="lead">Kleine Helfer, wie man sie in der IT wirklich braucht. Die Features sind Beispiele, ihr dürft sie ändern und ergänzen.</p>
+
+  <div class="ideen">
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>Passwort-Werkstatt</h3>
+      <p>Sichere Passwörter erzeugen und prüfen.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Passwort mit fester Länge aus zufälligen Zeichen erzeugen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Passwort prüfen: lang genug, Ziffer, Großbuchstabe? Mit Begründung</span></li>
+        <li><span class="stufe p">Profi</span><span>Erzeugte Passwörter mit Zweck in einer Datei speichern</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>Geräteverleih</h3>
+      <p>Wer hat welchen Laptop, welches Headset?</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Alle Geräte einer Liste nummeriert anzeigen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Gerät ausleihen und zurückgeben, Status „frei“ oder „verliehen“</span></li>
+        <li><span class="stufe p">Profi</span><span>Ausleihe speichern, Rückgabedatum mit <code>datetime</code></span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>Benutzerkonten-Generator</h3>
+      <p>Für neue Kolleginnen und Kollegen Konten vorbereiten.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Aus Vor- und Nachname einen Benutzernamen bauen, z. B. <code>max.muster</code></span></li>
+        <li><span class="stufe a">Aufbau</span><span>Doppelte Namen erkennen und durchnummerieren, Startpasswort erzeugen</span></li>
+        <li><span class="stufe p">Profi</span><span>Namensliste aus einer Datei lesen, Ergebnis in eine Datei schreiben</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>Helpdesk-Tickets</h3>
+      <p>Störungsmeldungen erfassen und abarbeiten.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Ticket mit Titel anlegen, alle Tickets anzeigen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Priorität und Status („offen“, „erledigt“), nur offene Tickets anzeigen</span></li>
+        <li><span class="stufe p">Profi</span><span>Tickets speichern, Statistik: wie viele offen, wie viele dringend</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>IT-Rechner</h3>
+      <p>Rechnen mit Speichergrößen und Datenraten.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Speichergrößen umrechnen: Byte, KB, MB, GB</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Downloadzeit aus Dateigröße und Bandbreite berechnen</span></li>
+        <li><span class="stufe p">Profi</span><span>Zahlen zwischen Dezimal und Binär umrechnen, ohne <code>bin()</code></span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Admin-Werkzeug</div>
+      <h3>Inventarliste</h3>
+      <p>Verbrauchsmaterial im Blick behalten.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Artikel mit Menge anzeigen und eine Menge ändern</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Warnung, wenn ein Bestand unter einen Mindestwert fällt</span></li>
+        <li><span class="stufe p">Profi</span><span>Bestand speichern und laden, Einkaufsliste erzeugen</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="teil" id="ideenpool2">
+  <div class="kicker">Teil 6 · Ideenpool</div>
+  <h1>Ideenpool: Spiele</h1>
+  <p class="lead">Spiele für die Konsole. Auch hier gilt: Erst eine einfache Version, die läuft, dann ausbauen.</p>
+
+  <div class="ideen">
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>Galgenmännchen</h3>
+      <p>Ein Wort Buchstabe für Buchstabe erraten.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Festes Wort, Buchstaben raten, erratene Buchstaben anzeigen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Zufallswort aus einer Liste, begrenzte Fehlversuche, Galgen als Text</span></li>
+        <li><span class="stufe p">Profi</span><span>Wörter aus einer Datei laden, Schwierigkeitsstufen</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>IT-Quiz</h3>
+      <p>Fragen rund um Hardware, Netzwerk und Python.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Fragen nacheinander stellen, Antwort prüfen, richtig oder falsch melden</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Zufällige Reihenfolge, Auswertung am Ende in Prozent</span></li>
+        <li><span class="stufe p">Profi</span><span>Fragen aus einer Datei, Kategorien wählbar, Highscore</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>Würfelduell</h3>
+      <p>Zwei Personen würfeln gegeneinander.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Beide würfeln einmal, die höhere Zahl gewinnt</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Mehrere Runden, Punktestand, Sonderregel bei einem Pasch</span></li>
+        <li><span class="stufe p">Profi</span><span>Mehrere Würfel mit Kniffel-Kategorien, Highscore-Datei</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>Schere, Stein, Papier</h3>
+      <p>Gegen den Computer, mit Statistik.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Eine Runde gegen den Computer mit <code>random.choice()</code></span></li>
+        <li><span class="stufe a">Aufbau</span><span>„Best of 5“ mit Spielstand und Statistik am Ende</span></li>
+        <li><span class="stufe p">Profi</span><span>Erweiterung um Echse und Spock, Oberfläche mit Knöpfen</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>Textadventure</h3>
+      <p>Durch Räume laufen, Gegenstände finden, ein Ziel erreichen.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Ein Raum mit Beschreibung und zwei Entscheidungen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Mehrere Räume, Inventar als Liste, Schleife bis zum Ziel</span></li>
+        <li><span class="stufe p">Profi</span><span>Spielstand speichern und später weiterspielen</span></li>
+      </ul>
+    </div>
+    <div class="idee">
+      <div class="art">Spiel</div>
+      <h3>Mastermind</h3>
+      <p>Einen geheimen Zahlencode knacken.</p>
+      <ul>
+        <li><span class="stufe b">Basis</span><span>Geheimen dreistelligen Code erzeugen, Tipp einlesen</span></li>
+        <li><span class="stufe a">Aufbau</span><span>Rückmeldung: wie viele Ziffern an der richtigen Stelle</span></li>
+        <li><span class="stufe p">Profi</span><span>Auch „richtige Ziffer, falsche Stelle“ zählen, Versuche begrenzen</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box orange">
+    <div class="box-titel">Eigene Idee?</div>
+    <p>Gern. Prüft sie mit den Prüffragen aus Phase 1. Wenn ihr für jede Person ein Feature findet und eine einfache Version bis Mittwochmittag laufen kann, legt los.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 7 PLANEN -->
+<section class="teil" id="planen">
+  <div class="kicker">Teil 7 · Phase 2 <span class="zeit">Dienstag, 10:05 – 11:45</span></div>
+  <h1>Phase 2: Planen</h1>
+  <p class="lead">Heute wird noch nicht programmiert. Ihr legt fest, was euer Programm können soll und wer was baut. Grundlage ist der Steckbrief in Anhang B.</p>
+
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><div><h3>Features sammeln und einordnen <span class="zeit">20 min</span></h3><p><b>Muss</b> läuft bis Mittwochmittag, <b>Soll</b> bis Donnerstag, <b>Kann</b> nur, wenn Zeit bleibt.</p></div></div>
+    <div class="schritt"><div class="nr">2</div><div><h3>Features und Rollen verteilen <span class="zeit">10 min</span></h3><p>Jede Person übernimmt ein Muss-Feature. Wählt ehrlich: Ein Basis-Feature, das läuft, bringt mehr als ein Profi-Feature, das nicht fertig wird.</p></div></div>
+    <div class="schritt"><div class="nr">3</div><div><h3>Das eigene Feature verstehen <span class="zeit">15 min</span></h3><p>Jede Person füllt „Mein Feature“ aus (Anhang B): Was tut es in einem Satz? Welche Eingabe, welche Ausgabe, welches Beispiel?</p></div></div>
+    <div class="schritt"><div class="nr">4</div><div><h3>Die Schnittstelle festlegen <span class="zeit">10 min</span></h3><p>Dateiname, Funktionsname, Parameter, Rückgabewert: So weiß <code>main.py</code>, wie es jedes Feature aufruft.</p></div></div>
+    <div class="schritt"><div class="nr">5</div><div><h3>In Teilschritte zerlegen <span class="zeit">30 min</span></h3><p>Teilschritte und Pseudocode aufschreiben. Der erste Teilschritt läuft nach 15 bis 30 Minuten.</p></div></div>
+    <div class="schritt"><div class="nr">6</div><div><h3>Ausbilder schaut drauf <span class="zeit">bis 11:45</span></h3><p>Zeigt dem Ausbilder euren Steckbrief. Erst danach geht es ans Programmieren.</p></div></div>
+  </div>
+
+  <h2>Beispiel: „Mein Feature“ ausgefüllt</h2>
+  <div class="grid2">
+    <div class="box grau">
+      <div class="box-titel">Passwort erzeugen <span class="stufe b">Basis</span></div>
+      <p><b>In einem Satz:</b> Erzeugt ein zufälliges Passwort in der gewünschten Länge.</p>
+      <p><b>Eingabe:</b> Länge als Zahl, z. B. <code>8</code><br><b>Ausgabe:</b> Passwort als Text, z. B. <code>k3T9xQ2a</code></p>
+      <p><b>Randfall:</b> Länge <code>2</code> ist zu kurz, also erneut fragen.</p>
+      <p><b>Schnittstelle:</b> Datei <code>passwort.py</code>,<br>Funktion <code>erzeuge_passwort(laenge)</code>, gibt einen <code>str</code> zurück.</p>
+    </div>
+    <div class="box grau">
+      <div class="box-titel">Teilschritte</div>
+      <p><span class="cb"></span>1. Ein einzelnes zufälliges Zeichen ausgeben (<code>random.choice</code>)<br>
+      <span class="cb"></span>2. Mit einer for-Schleife 8 Zeichen aneinanderhängen<br>
+      <span class="cb"></span>3. In eine Funktion mit Parameter <code>laenge</code> packen, Ergebnis mit <code>return</code><br>
+      <span class="cb"></span>4. Länge mit <code>input()</code> abfragen und umwandeln<br>
+      <span class="cb"></span>5. Zu kurze Länge abfangen und erneut fragen<br>
+      <span class="cb"></span>6. In <code>main.py</code> ins Menü einbauen</p>
+    </div>
+  </div>
+<pre class="py"># Pseudocode für Teilschritt 2 und 3
+Funktion erzeuge_passwort mit laenge:
+    passwort ist zuerst leer
+    wiederhole laenge-mal:
+        hänge ein zufälliges Zeichen an passwort an
+    gib passwort zurück</pre>
+</section>
+
+<!-- ============================================================ 8 UMSETZEN -->
+<section class="teil" id="umsetzen">
+  <div class="kicker">Teil 8 · Phase 3 <span class="zeit">Dienstag 12:45 bis Donnerstag</span></div>
+  <h1>Phase 3: Umsetzen</h1>
+  <p class="lead">Jetzt wird programmiert, Teilschritt für Teilschritt. Am Mittwochmittag laufen die Muss-Features, am Donnerstag ist das Programm fertig.</p>
+
+  <h2>Projektordner anlegen (Dienstag, 12:45)</h2>
+  <p>Holt euch das Repository <b>Workshop</b> (Anhang F). Kopiert den Ordner <code>projektvorlage</code> an einen eigenen Ort, zum Beispiel nach <code>Dokumente/workshop-team</code>. Arbeitet nicht direkt im geklonten Ordner, sonst gibt es Probleme beim Aktualisieren.</p>
+  <div class="grid2">
+<div class="ordner">workshop-team/
+├── main.py            ← Menü, ruft die Features auf
+├── passwort.py        ← Feature von Person 1
+├── pruefer.py         ← Feature von Person 2
+├── merksatz.py        ← Feature von Person 3
+└── speicher.py        ← Feature von Person 4</div>
+    <div>
+      <p>Jede Person benennt die Datei <code>feature_vorlage.py</code> in ihren eigenen Dateinamen um, oder kopiert sie. Die Integrationsrolle baut die Features in <code>main.py</code> ein.</p>
+      <p class="klein">Dateinamen: klein, ohne Umlaute und Leerzeichen, z. B. <code>passwort.py</code>. Sie müssen genau zu dem passen, was <code>main.py</code> importiert.</p>
+    </div>
+  </div>
+
+  <h2>So hängen die Dateien zusammen</h2>
+  <div class="code-breit">
+    <div>
+      <div class="code-titel">passwort.py</div>
+<pre class="py">import random
+
+ZEICHEN = "abcdefghjkmnpqrstuvwxyz23456789"
+
+
+def erzeuge_passwort(laenge):
+    passwort = ""
+    for i in range(laenge):
+        passwort = passwort + random.choice(ZEICHEN)
+    return passwort
+
+
+def starte():
+    laenge = int(input("Länge: "))
+    print("Dein Passwort:", erzeuge_passwort(laenge))
+
+
+if __name__ == "__main__":
+    starte()</pre>
+    </div>
+    <div>
+      <div class="code-titel">main.py (Ausschnitt)</div>
+<pre class="py">import passwort
+
+...
+        if auswahl == "1":
+            passwort.starte()</pre>
+      <p><b><code>import passwort</code></b> lädt die Datei <code>passwort.py</code>, die im selben Ordner liegt. Danach ruft <code>passwort.starte()</code> die Funktion aus dieser Datei auf.</p>
+      <p><b><code>if __name__ == "__main__":</code></b> Dieser Block läuft nur, wenn du genau diese Datei startest. So kannst du dein Feature allein testen, ohne dass das Menü der anderen schon fertig sein muss.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="teil" id="umsetzen2">
+  <div class="kicker">Teil 8 · Phase 3</div>
+  <h1>Arbeiten in kleinen Schritten</h1>
+  <p class="lead">Wer in kleinen Schritten programmiert und nach jedem Schritt testet, findet Fehler sofort und kommt schneller ans Ziel.</p>
+
+  <div class="flow">
+    <div class="station box grau" style="margin:0"><b>1. Kleinster Schritt</b>Nimm den nächsten Teilschritt aus „Mein Feature“. Programmiere nur diesen.</div>
+    <div class="pfeil">➜</div>
+    <div class="station box grau" style="margin:0"><b>2. Vorhersagen</b>Was soll passieren, wenn du die Datei startest? Sag es laut oder schreib es auf.</div>
+    <div class="pfeil">➜</div>
+    <div class="station box grau" style="margin:0"><b>3. Ausführen</b>Starte deine Datei allein. Stimmen Soll und Ist überein?</div>
+    <div class="pfeil">➜</div>
+    <div class="station box teal" style="margin:0"><b>4. Abhaken</b>Teilschritt im Steckbrief abhaken. Dann der nächste.</div>
+  </div>
+  <p class="klein">Passt etwas nicht, hilft Schritt 7 „Fehler eingrenzen“ aus Anhang A: Stelle eine Vermutung auf und prüfe sie gezielt mit <code>print()</code> oder dem Debugger.</p>
+
+  <h2>Mittwochvormittag: Muss-Features fertig</h2>
+  <p>Bis zum Zwischenreview soll euer Programm starten und die Muss-Features zeigen. Was noch nicht fertig ist, nehmt ihr vorübergehend aus dem Menü. Ein Menüpunkt, der abstürzt, hilft niemandem.</p>
+
+  <h2>Donnerstag: verbessern, ausbauen, aufräumen</h2>
+  <div class="grid3">
+    <div class="box teal"><div class="box-titel">Vormittag</div><p>Feedback aus dem Zwischenreview einarbeiten. Danach Soll-Features.</p></div>
+    <div class="box purple"><div class="box-titel">Exkurse</div><p>Wenn eure Muss-Features laufen, könnt ihr einen Exkurs einbauen: Pakete mit pip (G), Dateien (H), Oberfläche (I).</p></div>
+    <div class="box orange"><div class="box-titel">Nachmittag</div><p>Clean-Code-Durchgang mit dem Check aus Anhang E, danach Präsentation vorbereiten (Teil 10).</p></div>
+  </div>
+
+  <div class="box purple">
+    <div class="box-titel">Exkurse für Fortgeschrittene</div>
+    <p>Die Exkurse in Anhang G, H und I gehen über das Seminar hinaus. Sie sind <b>freiwillig</b> und nur dann sinnvoll, wenn dein Muss-Feature schon läuft. Jeder Exkurs hat eine Einführung zum Lesen und lauffähige Beispiele im Ordner <code>beispiele</code> des Repositorys. Wer einen Exkurs einbaut, erklärt ihn am Freitag kurz den anderen.</p>
+  </div>
+
+  <h2>Dateien im Team austauschen</h2>
+  <p>Ihr arbeitet jeweils an eurer eigenen Datei. So entstehen keine Konflikte.</p>
+  <ul>
+    <li>Legt im Teams-Kanal eures Teams einen Ordner für den Code an. Jede Person lädt <b>nur ihre eigene Datei</b> hoch und ersetzt dort die alte Version.</li>
+    <li>Die Integrationsrolle lädt beim Integrationscheck alle aktuellen Dateien herunter, legt sie in den gemeinsamen Projektordner und startet <code>main.py</code>.</li>
+    <li>Ändert nie die Datei einer anderen Person. Gebt stattdessen einen Hinweis.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ 9 REVIEW -->
+<section class="teil" id="review">
+  <div class="kicker">Teil 9 · Zwischenreview <span class="zeit">Mittwoch, Nachmittag</span></div>
+  <h1>Zwischenreview</h1>
+  <p class="lead">Je zwei Teams schauen sich gegenseitig Programm und Code an. Ihr bekommt frische Augen auf euer Projekt, und ihr seht, wie andere ein Problem gelöst haben.</p>
+
+  <h2>Drei Runden</h2>
+  <table>
+    <thead><tr><th style="width:24mm">Runde</th><th>Wer reviewt wen?</th><th>Das dritte Team</th></tr></thead>
+    <tbody>
+      <tr><td><b>Runde 1</b></td><td>Team 1 und Team 2 reviewen sich gegenseitig.</td><td>Team 3 arbeitet weiter, der Ausbilder schaut vorbei.</td></tr>
+      <tr><td><b>Runde 2</b></td><td>Team 2 und Team 3 reviewen sich gegenseitig.</td><td>Team 1 arbeitet weiter.</td></tr>
+      <tr><td><b>Runde 3</b></td><td>Team 3 und Team 1 reviewen sich gegenseitig.</td><td>Team 2 arbeitet weiter.</td></tr>
+    </tbody>
+  </table>
+  <p>So reviewt jedes Team zweimal und bekommt von beiden anderen Teams Feedback. Eine Runde dauert etwa 30 Minuten: 15 Minuten in jede Richtung.</p>
+
+  <h2>Ablauf in eine Richtung (15 Minuten)</h2>
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><div><h3>Ausprobieren <span class="zeit">5 min</span></h3><p>Das Gast-Team bedient das Programm, <b>ohne Erklärung</b>. Es denkt dabei laut: „Ich will jetzt … Ich erwarte …“. Das Gastgeber-Team schaut zu und schweigt.</p></div></div>
+    <div class="schritt"><div class="nr">2</div><div><h3>Code lesen <span class="zeit">5 min</span></h3><p>Das Gastgeber-Team zeigt eine Feature-Datei. Das Gast-Team liest sie mit dem Bogen aus Anhang C und stellt Verständnisfragen.</p></div></div>
+    <div class="schritt"><div class="nr">3</div><div><h3>Feedback <span class="zeit">5 min</span></h3><p>Das Gast-Team gibt Feedback nach dem Muster <b>zwei Sterne und ein Wunsch</b>: zwei Dinge, die gut gelungen sind, und ein konkreter Verbesserungsvorschlag.</p></div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="box teal">
+      <div class="box-titel">Feedback geben</div>
+      <ul>
+        <li>Konkret: „Bei Menüpunkt 2 wusste ich nicht, ob ich eine Zahl oder ein Wort eingeben soll.“</li>
+        <li>Über die Sache, nicht über die Person.</li>
+        <li>Auch Gelungenes benennen, und zwar genau.</li>
+      </ul>
+    </div>
+    <div class="box purple">
+      <div class="box-titel">Feedback annehmen</div>
+      <ul>
+        <li>Zuhören und mitschreiben, nicht rechtfertigen.</li>
+        <li>Nachfragen, wenn etwas unklar ist.</li>
+        <li>Danach im Team entscheiden, was ihr umsetzt.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p><b>Nach dem Review</b> nehmt ihr euch 10 Minuten im Team: Was nehmen wir uns bis Donnerstag vor? Tragt mindestens einen Punkt unten auf dem Review-Bogen ein und setzt ihn am Donnerstag um.</p>
+</section>
+
+<!-- ============================================================ 10 PRÄSENTATION -->
+<section class="teil" id="praesentation">
+  <div class="kicker">Teil 10 · Präsentation <span class="zeit">Freitag</span></div>
+  <h1>Präsentation und Reflexion</h1>
+  <p class="lead">Ihr zeigt, was ihr gebaut habt und wie ihr dabei vorgegangen seid. Jedes Team hat etwa 20 Minuten.</p>
+
+  <h2>Ablauf pro Team</h2>
+  <table>
+    <thead><tr><th style="width:36mm">Teil</th><th style="width:18mm">Dauer</th><th>Inhalt</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Idee und Plan</b></td><td>2 min</td><td>Was macht euer Programm, für wen? Wie habt ihr die Features verteilt?</td></tr>
+      <tr><td><b>2. Fremde Vorführung</b></td><td>5 min</td><td>Eine Person aus einem anderen Team bedient euer Programm. Ihr dürft sagen, was sie ausprobieren soll, aber nicht die Tastatur übernehmen.</td></tr>
+      <tr><td><b>3. Code-Einblick</b></td><td>je 2 min</td><td>Jede Person zeigt eine Funktion aus ihrem Feature und erklärt sie Zeile für Zeile.</td></tr>
+      <tr><td><b>4. Rückblick</b></td><td>2 min</td><td>Was lief gut? Wo seid ihr steckengeblieben, und wie seid ihr weitergekommen?</td></tr>
+      <tr><td><b>5. Fragen und Feedback</b></td><td>5 min</td><td>Die Zuhörenden stellen Fragen und geben Feedback aus ihrem Schwerpunkt.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid2">
+    <div class="box teal">
+      <div class="box-titel">Vorbereitung (Donnerstag)</div>
+      <p><span class="cb"></span>Programm läuft auf dem Präsentationsrechner<br>
+      <span class="cb"></span>Reihenfolge der Sprechenden steht fest<br>
+      <span class="cb"></span>Jede Person hat ihre Funktion ausgewählt<br>
+      <span class="cb"></span>Eine Vorführung einmal durchgespielt<br>
+      <span class="cb"></span>Plan B, falls etwas abstürzt: Screenshots</p>
+    </div>
+    <div class="box purple">
+      <div class="box-titel">Zuhören mit Schwerpunkt</div>
+      <p>Jede zuhörende Person bekommt einen Schwerpunkt: <b>Bedienung</b>, <b>Code</b>, <b>Erklärung</b> oder <b>Zusammenarbeit</b>. Mit dem Bogen aus Anhang D notiert sie Beobachtungen und stellt danach mindestens eine Frage. Es gibt keine Punkte, nur Beobachtungen und Fragen.</p>
+    </div>
+  </div>
+
+  <h2>Reflexion</h2>
+  <p>Zum Abschluss denkt jede Person zuerst allein über die Woche nach (10 Minuten). Danach sagt jede Person in der Abschlussrunde einen Satz: „Das nehme ich mit …“</p>
+  <div class="feld"><div class="feld-label">Was habe ich diese Woche gelernt, das ich vorher nicht konnte?</div><div class="linien eng"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Wo bin ich steckengeblieben, und was hat mir geholfen weiterzukommen?</div><div class="linien eng"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Welcher Schritt aus „Programmieren mit System“ hat mir am meisten geholfen?</div><div class="linien eng"><div></div></div></div>
+  <div class="feld"><div class="feld-label">Was mache ich beim nächsten Projekt anders?</div><div class="linien eng"><div></div><div></div></div></div>
+</section>
+
+<!-- ============================================================ ANHANG ÜBERSICHT -->
+<section class="teil anhang" id="anhang">
+  <div class="kicker">Anhang</div>
+  <h1>Anhang: Übersicht</h1>
+  <p class="lead">Vorlagen zum Ausfüllen, Werkzeuge und Exkurse zum Nachschlagen.</p>
+  <table>
+    <thead><tr><th style="width:10mm"></th><th style="width:62mm">Anhang</th><th>Wann brauchst du ihn?</th><th style="width:14mm">Seite</th></tr></thead>
+    <tbody>
+      <tr><td><b>A</b></td><td>Programmieren mit System</td><td>Immer, wenn du ein Problem angehst oder feststeckst.</td><td><span class="pg" data-ref="anhang-a"></span></td></tr>
+      <tr><td><b>B</b></td><td>Steckbrief und „Mein Feature“</td><td>Montag und Dienstag beim Planen, danach als Fortschrittsliste.</td><td><span class="pg" data-ref="anhang-b"></span></td></tr>
+      <tr><td><b>C</b></td><td>Bogen Zwischenreview</td><td>Mittwochnachmittag, ein Bogen pro Review.</td><td><span class="pg" data-ref="anhang-c"></span></td></tr>
+      <tr><td><b>D</b></td><td>Bogen Präsentation</td><td>Freitag, ein Bogen pro präsentierendem Team.</td><td><span class="pg" data-ref="anhang-d"></span></td></tr>
+      <tr><td><b>E</b></td><td>Coding Conventions und Clean Code</td><td>Beim Programmieren und beim Clean-Code-Durchgang am Donnerstag.</td><td><span class="pg" data-ref="anhang-e"></span></td></tr>
+      <tr><td><b>F</b></td><td>Basics: Arbeiten mit GitHub</td><td>Dienstag, wenn ihr den Projektordner anlegt.</td><td><span class="pg" data-ref="anhang-f"></span></td></tr>
+      <tr><td><b>G</b></td><td>Bibliotheken: Standardmodule und pip</td><td>Sobald du ein Modul wie <code>random</code> brauchst. Der pip-Teil ist ein Exkurs.</td><td><span class="pg" data-ref="anhang-g"></span></td></tr>
+      <tr><td><b>H</b></td><td>Exkurs: Dateien und Datenströme</td><td>Für Fortgeschrittene, wenn Daten erhalten bleiben sollen.</td><td><span class="pg" data-ref="anhang-h"></span></td></tr>
+      <tr><td><b>I</b></td><td>Exkurs: Grafische Oberflächen</td><td>Für Fortgeschrittene, wenn ein Feature ein Fenster bekommen soll.</td><td><span class="pg" data-ref="anhang-i"></span></td></tr>
+    </tbody>
+  </table>
+  <div class="box grau">
+    <div class="box-titel">Vorlagen einzeln drucken</div>
+    <p>Steckbrief, „Mein Feature“, die Bögen und die Checkliste liegen im Repository zusätzlich als einzelne PDFs im Ordner <code>vorlagen</code>.</p>
+  </div>
+</section>
+
+<!-- ============================================================ ANHANG A (eingefügte Originalseiten) -->
+<div class="einlage" id="anhang-a">EINLAGE-A-1</div>
+<div class="einlage">EINLAGE-A-2</div>
+
+<!-- ============================================================ ANHANG B -->
+<section class="teil anhang" id="anhang-b">
+  <div class="kicker">Anhang B · Vorlage</div>
+  <h1>Team-Steckbrief</h1>
+  <p class="lead">Einmal pro Team. Die Planungsrolle hält ihn die ganze Woche aktuell.</p>
+
+  <div class="grid2">
+    <div class="feld"><div class="feld-label">Team</div><div class="linien"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Projektname</div><div class="linien"><div></div></div></div>
+  </div>
+  <div class="feld"><div class="feld-label">Unsere Idee in einem Satz</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Wer benutzt das Programm, und wofür?</div><div class="linien"><div></div></div></div>
+
+  <h3>Mitglieder und Rollen</h3>
+  <table class="gitter">
+    <thead><tr><th style="width:45%">Name</th><th>Rolle (Planung, Test, Integration, Moderation)</th></tr></thead>
+    <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody>
+  </table>
+
+  <h3>Features</h3>
+  <table class="gitter">
+    <thead><tr><th style="width:7mm">Nr.</th><th>Feature</th><th style="width:21mm">Muss / Soll / Kann</th><th style="width:18mm">Stufe B / A / P</th><th style="width:24mm">Wer</th><th style="width:28mm">Datei</th><th style="width:9mm">Fertig</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="feld"><div class="feld-label">Das muss bis Mittwochmittag laufen</div><div class="linien"><div></div><div></div></div></div>
+  <p style="margin-top:4mm"><span class="cb"></span><b>Vom Ausbilder angeschaut</b> &nbsp;am ________________ &nbsp; Kürzel ________</p>
+</section>
+
+<section class="teil anhang" id="anhang-b2">
+  <div class="kicker">Anhang B · Vorlage</div>
+  <h1>Mein Feature</h1>
+  <p class="lead">Einmal pro Person. Erst ausfüllen, dann programmieren.</p>
+
+  <div class="grid3">
+    <div class="feld"><div class="feld-label">Name</div><div class="linien"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Feature</div><div class="linien"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Stufe</div><p style="margin-top:3mm"><span class="cb"></span>Basis &nbsp; <span class="cb"></span>Aufbau &nbsp; <span class="cb"></span>Profi</p></div>
+  </div>
+
+  <h3>1 · Verstehen: Was soll passieren?</h3>
+  <div class="feld"><div class="feld-label">Mein Feature in einem Satz</div><div class="linien eng"><div></div><div></div></div></div>
+  <div class="grid2">
+    <div class="feld"><div class="feld-label">Eingabe (was kommt rein?)</div><div class="linien eng"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Ausgabe (was soll rauskommen?)</div><div class="linien eng"><div></div></div></div>
+  </div>
+
+  <h3>2 · Konkretisieren: Beispiele</h3>
+  <table class="gitter">
+    <thead><tr><th style="width:45%">Eingabe</th><th>Erwartete Ausgabe</th></tr></thead>
+    <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td><span class="klein">Randfall:</span></td><td></td></tr></tbody>
+  </table>
+
+  <h3>3 · Schnittstelle</h3>
+  <p>Datei: <code>______________.py</code> &nbsp; Funktion: <code>def ______________________(______________):</code><br>Gibt zurück: ____________________________________________</p>
+
+  <h3>4 · Zerlegen: Teilschritte</h3>
+  <table class="gitter">
+    <thead><tr><th style="width:7mm">Nr.</th><th>Teilschritt (der erste passt in 15 bis 30 Minuten)</th><th style="width:12mm">Fertig</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>2</td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>3</td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>4</td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+      <tr><td>5</td><td></td><td style="text-align:center"><span class="cb" style="margin:0"></span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>5 · Planen: Pseudocode</h3>
+  <div class="linien"><div></div><div></div><div></div><div></div><div></div></div>
+</section>
+
+<!-- ============================================================ ANHANG C -->
+<section class="teil anhang" id="anhang-c">
+  <div class="kicker">Anhang C · Vorlage</div>
+  <h1>Bogen Zwischenreview</h1>
+  <p class="lead">Füllt ihn als Gast-Team aus und gebt ihn danach dem Gastgeber-Team. Es geht um Beobachtungen, nicht um Punkte.</p>
+
+  <div class="grid2">
+    <div class="feld"><div class="feld-label">Wir sind Team</div><div class="linien"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Wir reviewen Team / Projekt</div><div class="linien"><div></div></div></div>
+  </div>
+
+  <h3>1 · Ausprobieren</h3>
+  <div class="feld"><div class="feld-label">Was hat sofort geklappt?</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Wo wussten wir nicht weiter? Gab es Abstürze oder unerwartete Ausgaben?</div><div class="linien"><div></div><div></div></div></div>
+
+  <h3>2 · Code lesen &nbsp;<span class="klein">Datei: __________________</span></h3>
+  <table class="gitter">
+    <thead><tr><th style="width:52%">Leitfrage</th><th>Unsere Beobachtung</th></tr></thead>
+    <tbody>
+      <tr><td>Verstehen wir die Namen von Variablen und Funktionen ohne Erklärung?</td><td></td></tr>
+      <tr><td>Erledigt jede Funktion eine klar erkennbare Aufgabe?</td><td></td></tr>
+      <tr><td>Gibt es Code, der mehrfach fast gleich vorkommt?</td><td></td></tr>
+      <tr><td>Welche Inhalte aus der Checkliste (Teil 5) entdecken wir?</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>3 · Zwei Sterne und ein Wunsch</h3>
+  <div class="feld"><div class="feld-label">★ Das ist gut gelungen</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">★ Das ist auch gut gelungen</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">➜ Unser Wunsch: Das würden wir verbessern</div><div class="linien"><div></div><div></div></div></div>
+
+  <div class="box teal" style="margin-top:4mm">
+    <div class="box-titel">Vom Gastgeber-Team auszufüllen</div>
+    <div class="feld" style="margin:0"><div class="feld-label">Das setzen wir bis Donnerstag um</div><div class="linien eng"><div></div><div></div></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ ANHANG D -->
+<section class="teil anhang" id="anhang-d">
+  <div class="kicker">Anhang D · Vorlage</div>
+  <h1>Bogen Präsentation</h1>
+  <p class="lead">Ein Bogen pro präsentierendem Team. Achte vor allem auf deinen Schwerpunkt und notiere Beobachtungen. Es gibt keine Punkte.</p>
+
+  <div class="grid2">
+    <div class="feld"><div class="feld-label">Mein Name</div><div class="linien"><div></div></div></div>
+    <div class="feld"><div class="feld-label">Präsentierendes Team / Projekt</div><div class="linien"><div></div></div></div>
+  </div>
+  <div class="feld"><div class="feld-label">Mein Schwerpunkt</div><p style="margin-top:2mm"><span class="cb"></span>Bedienung &nbsp;&nbsp; <span class="cb"></span>Code &nbsp;&nbsp; <span class="cb"></span>Erklärung &nbsp;&nbsp; <span class="cb"></span>Zusammenarbeit</p></div>
+
+  <h3>Leitfragen zu den Schwerpunkten</h3>
+  <div class="grid2">
+    <div class="box grau"><div class="box-titel">Bedienung</div><p>Kam die fremde Person ohne Hilfe zurecht? Wo hat sie gezögert? Was passierte bei falschen Eingaben?</p></div>
+    <div class="box grau"><div class="box-titel">Code</div><p>Waren Namen und Funktionen verständlich? Was war besonders geschickt gelöst? Welche Seminarinhalte habe ich entdeckt?</p></div>
+    <div class="box grau"><div class="box-titel">Erklärung</div><p>Konnte jede Person ihre Funktion Zeile für Zeile erklären? Was habe ich dabei selbst gelernt?</p></div>
+    <div class="box grau"><div class="box-titel">Zusammenarbeit</div><p>Wurde klar, wer was gebaut hat und wie die Teile zusammenpassen? Wie hat das Team Probleme gelöst?</p></div>
+  </div>
+
+  <div class="feld" style="margin-top:4mm"><div class="feld-label">Meine Beobachtungen</div><div class="linien"><div></div><div></div><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Das hat mir besonders gefallen</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Mein Tipp: Das würde ich anders machen</div><div class="linien"><div></div><div></div></div></div>
+  <div class="feld"><div class="feld-label">Meine Frage an das Team</div><div class="linien"><div></div><div></div></div></div>
+</section>
+
+<!-- ============================================================ ANHANG E -->
+<section class="teil anhang" id="anhang-e">
+  <div class="kicker">Anhang E · Werkzeug</div>
+  <h1>Coding Conventions und Clean Code</h1>
+  <p class="lead">Code wird viel öfter gelesen als geschrieben, von deinem Team, vom Ausbilder und von dir selbst in zwei Wochen. Einheitliche Regeln machen ihn leichter lesbar.</p>
+
+  <h2>Python-Konventionen (PEP 8)</h2>
+  <p>PEP 8 ist der offizielle Stilleitfaden für Python. Die wichtigsten Regeln:</p>
+  <table>
+    <thead><tr><th style="width:38mm">Thema</th><th>Regel</th><th style="width:50mm">Beispiel</th></tr></thead>
+    <tbody>
+      <tr><td><b>Einrückung</b></td><td>Immer 4 Leerzeichen pro Ebene, keine Tabs mischen.</td><td><code>␣␣␣␣print(x)</code></td></tr>
+      <tr><td><b>Variablen, Funktionen</b></td><td>Kleinbuchstaben, Wörter mit Unterstrich verbunden (snake_case).</td><td><code>anzahl_versuche</code><br><code>def zeige_menue():</code></td></tr>
+      <tr><td><b>Konstanten</b></td><td>Werte, die sich nie ändern: Großbuchstaben, oben in der Datei.</td><td><code>MAX_VERSUCHE = 3</code></td></tr>
+      <tr><td><b>Umlaute</b></td><td>In Namen keine Umlaute und kein ß verwenden. In Texten sind sie erlaubt.</td><td><code>groesse</code> statt <code>größe</code></td></tr>
+      <tr><td><b>Leerzeichen</b></td><td>Um <code>=</code> und Rechenzeichen, nach Kommas. Nicht direkt innerhalb von Klammern.</td><td><code>summe = a + b</code><br><code>print(a, b)</code></td></tr>
+      <tr><td><b>Leerzeilen</b></td><td>Zwei Leerzeilen vor jeder Funktion. Innerhalb von Funktionen sparsam, um Abschnitte zu trennen.</td><td></td></tr>
+      <tr><td><b>Imports</b></td><td>Ganz oben in der Datei, jeder Import in einer eigenen Zeile.</td><td><code>import random</code></td></tr>
+      <tr><td><b>Zeilenlänge</b></td><td>Höchstens etwa 79 Zeichen. Lange Texte lieber aufteilen.</td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="box teal">
+    <div class="box-titel">PyCharm hilft</div>
+    <p><b>Code &gt; Reformat Code</b> (Windows: <code>Strg + Alt + L</code>, macOS: <code>⌥ + ⌘ + L</code>) formatiert deine Datei nach PEP 8. Gelbe Wellenlinien zeigen Stilprobleme. Fahr mit der Maus darüber, dann siehst du den Hinweis.</p>
+  </div>
+
+  <h2>Docstrings und Kommentare</h2>
+  <p>Ein <b>Docstring</b> steht in dreifachen Anführungszeichen direkt unter <code>def</code> und sagt in einem Satz, was die Funktion tut. PyCharm zeigt ihn an, wenn jemand die Funktion benutzt. Ein <b>Kommentar</b> mit <code>#</code> erklärt, warum etwas so gelöst ist.</p>
+<pre class="py">MINDESTLAENGE = 8
+
+
+def ist_sicher(passwort):
+    """Gibt True zurück, wenn das Passwort lang genug ist und eine Ziffer enthält."""
+    # Länge zuerst prüfen: Das ist die häufigste Schwachstelle
+    if len(passwort) &lt; MINDESTLAENGE:
+        return False
+    for zeichen in passwort:
+        if zeichen.isdigit():
+            return True
+    return False</pre>
+
+</section>
+
+<section class="teil anhang" id="anhang-e2">
+  <div class="kicker">Anhang E · Werkzeug</div>
+  <h1>Clean-Code-Regeln</h1>
+  <p class="lead">Clean Code heißt: Code, den andere ohne Erklärung verstehen und gefahrlos ändern können.</p>
+  <div class="regeln">
+    <div class="regel"><div class="nr">1</div><div><h3>Sprechende Namen</h3><p>Der Name sagt, was drinsteht oder was passiert: <code>anzahl_fehler</code> statt <code>x</code>, <code>berechne_summe()</code> statt <code>f()</code>.</p></div></div>
+    <div class="regel"><div class="nr">2</div><div><h3>Eine Funktion, eine Aufgabe</h3><p>Wenn du die Aufgabe einer Funktion nur mit „und“ beschreiben kannst, teile sie auf.</p></div></div>
+    <div class="regel"><div class="nr">3</div><div><h3>Keine magischen Zahlen</h3><p>Eine nackte <code>3</code> im Code erklärt sich nicht. <code>MAX_VERSUCHE = 3</code> schon, und du änderst sie an einer Stelle.</p></div></div>
+    <div class="regel"><div class="nr">4</div><div><h3>Nicht wiederholen</h3><p>Kommt fast derselbe Code mehrmals vor, gehört er in eine Schleife oder eine Funktion.</p></div></div>
+    <div class="regel"><div class="nr">5</div><div><h3>Kommentare erklären das Warum</h3><p>Was der Code tut, zeigen gute Namen. Kommentare erklären, warum etwas so gelöst ist. Jede Funktion bekommt einen Docstring.</p></div></div>
+    <div class="regel"><div class="nr">6</div><div><h3>Eingaben prüfen</h3><p>Rechne damit, dass Nutzende etwas Falsches eingeben. Frag freundlich erneut, statt abzustürzen.</p></div></div>
+  </div>
+
+  <h2>Clean-Code-Durchgang am Donnerstag</h2>
+  <ol>
+    <li>Geh deine eigene Datei mit dem Check unten durch und verbessere sie.</li>
+    <li>Tauscht paarweise: Lies die Datei einer anderen Person. Verstehst du jede Funktion ohne Erklärung? Notiere unklare Stellen und sprecht darüber.</li>
+    <li>Startet danach das ganze Programm. Aufräumen darf nichts kaputt machen.</li>
+  </ol>
+  <div class="box purple">
+    <div class="box-titel">Clean-Code-Check für deine Datei</div>
+    <p><span class="cb"></span>Alle Namen verraten, was drinsteht oder was passiert.<br>
+    <span class="cb"></span>Keine Funktion ist länger als etwa 20 Zeilen.<br>
+    <span class="cb"></span>Feste Werte stehen als Konstanten oben in der Datei.<br>
+    <span class="cb"></span>Kein Codeblock kommt mehrfach fast gleich vor.<br>
+    <span class="cb"></span>Jede Funktion hat einen Docstring.<br>
+    <span class="cb"></span>Falsche Eingaben führen nicht zum Absturz.<br>
+    <span class="cb"></span>Kein auskommentierter alter Code, keine ungenutzten Variablen.<br>
+    <span class="cb"></span>„Reformat Code“ in PyCharm ausgeführt, keine gelben Wellenlinien mehr.</p>
+  </div>
+</section>
+
+<section class="teil anhang" id="anhang-e3">
+  <div class="kicker">Anhang E · Werkzeug</div>
+  <h1>Clean Code: vorher und nachher</h1>
+  <p class="lead">Beide Programme lösen dieselbe Aufgabe. Welches würdest du lieber erweitern?</p>
+
+  <div class="vorher-nachher">
+    <div class="vorher">
+      <div class="vn-label">Vorher</div>
+<pre class="py">import random
+z = random.randint(1, 20)
+v = 0
+while v &lt; 5:
+    e = int(input("Zahl: "))
+    v = v + 1
+    if e == z:
+        print("Richtig!")
+        v = 5
+    elif e &lt; z:
+        print("Zu klein")
+        print("Noch", 5 - v, "Versuche")
+    else:
+        print("Zu groß")
+        print("Noch", 5 - v, "Versuche")</pre>
+    </div>
+    <div class="nachher">
+      <div class="vn-label">Nachher</div>
+<pre class="py">import random
+
+MAX_VERSUCHE = 5
+OBERGRENZE = 20
+
+
+def gib_hinweis(tipp, geheimzahl):
+    """Gibt einen Hinweis-Text zurück."""
+    if tipp &lt; geheimzahl:
+        return "Zu klein"
+    return "Zu groß"
+
+
+def spiele_runde():
+    """Eine Runde Zahlenraten."""
+    geheimzahl = random.randint(1, OBERGRENZE)
+    for versuch in range(1, MAX_VERSUCHE + 1):
+        tipp = int(input("Zahl: "))
+        if tipp == geheimzahl:
+            print("Richtig!")
+            return
+        print(gib_hinweis(tipp, geheimzahl))
+        verbleibend = MAX_VERSUCHE - versuch
+        print("Noch", verbleibend, "Versuche")
+    print("Leider verloren. Die Zahl war", geheimzahl)</pre>
+    </div>
+  </div>
+
+  <h3>Was hat sich verbessert?</h3>
+  <ul>
+    <li><b>Namen:</b> <code>tipp</code>, <code>geheimzahl</code> und <code>versuch</code> statt <code>e</code>, <code>z</code> und <code>v</code>.</li>
+    <li><b>Konstanten</b> statt magischer Zahlen: Die 5 und die 20 stehen nur noch an einer Stelle.</li>
+    <li><b>Keine Wiederholung:</b> Die Zeile „Noch … Versuche“ steht nur noch einmal.</li>
+    <li><b>Funktionen</b> mit Docstring: Jede hat eine klar benannte Aufgabe und lässt sich einzeln testen.</li>
+    <li><b>Kein Trick mehr:</b> <code>v = 5</code> zum Beenden der Schleife war schwer zu verstehen. <code>return</code> sagt klar, dass die Runde vorbei ist.</li>
+  </ul>
+
+</section>
+
+<!-- ============================================================ ANHANG F -->
+<section class="teil anhang" id="anhang-f">
+  <div class="kicker">Anhang F · Werkzeug</div>
+  <h1>Basics: Arbeiten mit GitHub</h1>
+  <p class="lead">Den Code für den Workshop holt ihr euch aus einem GitHub-Repository. Das ist der übliche Weg, wie Teams in der Softwareentwicklung Code teilen.</p>
+
+  <h2>Die wichtigsten Begriffe</h2>
+  <table>
+    <thead><tr><th style="width:34mm">Begriff</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><td><b>Git</b></td><td>Ein Programm auf deinem Rechner, das Versionen von Dateien verwaltet. Ist bei euch schon installiert.</td></tr>
+      <tr><td><b>GitHub</b></td><td>Eine Website, auf der Git-Repositorys gespeichert und geteilt werden.</td></tr>
+      <tr><td><b>Repository</b></td><td>Ein Projektordner mit allen Dateien und ihrer Versionsgeschichte, kurz „Repo“.</td></tr>
+      <tr><td><b>Clone</b></td><td>Eine Kopie eines Repositorys von GitHub auf deinen Rechner holen. Das machst du einmal.</td></tr>
+      <tr><td><b>Pull</b></td><td>Neue Änderungen von GitHub in deine Kopie holen. Das machst du immer, wenn es etwas Neues gibt.</td></tr>
+      <tr><td><b>Commit, Push</b></td><td>Eigene Änderungen speichern und hochladen. Brauchen wir im Workshop nicht. Im Berufsalltag ist das der nächste Schritt.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Das Workshop-Repository holen</h2>
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><div><h3>Einladung annehmen</h3><p>Das Repository ist privat. Du bekommst eine Einladung per E-Mail an deine GitHub-Adresse. Klicke dort auf <b>Accept invitation</b>. Alternativ findest du sie unter <code>github.com/notifications</code>.</p></div></div>
+    <div class="schritt"><div class="nr">2</div><div><h3>Klonen in PyCharm</h3><p>Startbildschirm: <b>Clone Repository</b> (oder Menü <b>File &gt; New &gt; Project from Version Control</b>). Links <b>GitHub</b> wählen und mit deinem Konto anmelden. Dann <b>Workshop</b> auswählen, einen Zielordner festlegen und auf <b>Clone</b> klicken.</p></div></div>
+    <div class="schritt"><div class="nr">3</div><div><h3>Oder klonen im Terminal</h3><p>Wechsle in den Ordner, in dem das Repository landen soll, und gib ein:</p>
+<pre class="terminal">git clone https://github.com/totoongh/Workshop.git</pre>
+    <p class="klein">Beim ersten Mal öffnet sich ein Anmeldefenster im Browser. Melde dich dort mit deinem GitHub-Konto an.</p></div></div>
+  </div>
+</section>
+
+<section class="teil anhang" id="anhang-f2">
+  <div class="kicker">Anhang F · Werkzeug</div>
+  <h1>Aktualisieren und Befehle</h1>
+  <p class="lead">Wenn der Ausbilder etwas ergänzt, holst du dir die neue Version mit einem Befehl.</p>
+
+  <h2>Neue Version holen</h2>
+  <div class="grid2">
+    <div class="box grau"><div class="box-titel">In PyCharm</div><p>Menü <b>Git &gt; Update Project</b> (Windows: <code>Strg + T</code>, macOS: <code>⌘ + T</code>), dann mit <b>OK</b> bestätigen.</p></div>
+    <div class="box grau"><div class="box-titel">Im Terminal</div><p>Im Ordner des Repositorys:</p><pre class="terminal" style="margin-bottom:0">git pull</pre></div>
+  </div>
+
+  <div class="box orange">
+    <div class="box-titel">Wichtig: Arbeite nicht im geklonten Ordner</div>
+    <p>Kopiere <code>projektvorlage</code> an einen eigenen Ort, bevor du anfängst (Teil 8). Wenn du Dateien im geklonten Ordner änderst, kann <code>git pull</code> mit einer Fehlermeldung abbrechen.</p>
+  </div>
+
+  <h2>Spickzettel: wichtige Befehle</h2>
+  <table>
+    <thead><tr><th style="width:62mm">Befehl</th><th>Was er tut</th></tr></thead>
+    <tbody>
+      <tr><td><code>git clone &lt;Adresse&gt;</code></td><td>Repository einmalig auf den Rechner holen</td></tr>
+      <tr><td><code>git pull</code></td><td>Neue Änderungen von GitHub holen</td></tr>
+      <tr><td><code>git status</code></td><td>Zeigen, ob du Dateien im Repository geändert hast</td></tr>
+      <tr><td><code>git log --oneline</code></td><td>Die letzten Änderungen kurz auflisten</td></tr>
+      <tr><td><code>cd &lt;Ordner&gt;</code></td><td>In einen Ordner wechseln, <code>cd ..</code> geht eine Ebene nach oben</td></tr>
+      <tr><td><code>dir</code> (Windows) · <code>ls</code> (macOS)</td><td>Inhalt des aktuellen Ordners anzeigen</td></tr>
+      <tr><td><code>py datei.py</code> · <code>python3 datei.py</code></td><td>Ein Python-Programm im Terminal starten</td></tr>
+    </tbody>
+  </table>
+  <p class="klein">Tipp: Im Terminal ergänzt die <b>Tab-Taste</b> Ordner- und Dateinamen. Mit <b>Pfeil nach oben</b> holst du den letzten Befehl zurück.</p>
+
+  <h2>Wenn etwas nicht klappt</h2>
+  <table>
+    <thead><tr><th style="width:62mm">Meldung</th><th>Lösung</th></tr></thead>
+    <tbody>
+      <tr><td><code>Repository not found</code></td><td>Einladung noch nicht angenommen, oder du bist mit einem anderen GitHub-Konto angemeldet.</td></tr>
+      <tr><td><code>Authentication failed</code></td><td>Anmeldung abgelaufen oder abgebrochen. In PyCharm unter <b>Settings &gt; Version Control &gt; GitHub</b> neu anmelden.</td></tr>
+      <tr><td><code>Your local changes … would be overwritten</code></td><td>Du hast im geklonten Ordner etwas geändert. Sichere deine Datei an einem anderen Ort und frag dann im Team oder den Ausbilder.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ ANHANG G -->
+<section class="teil anhang" id="anhang-g">
+  <div class="kicker">Anhang G · Werkzeug</div>
+  <h1>Bibliotheken: Standardmodule und pip</h1>
+  <p class="lead">Niemand programmiert alles selbst. Für viele Aufgaben gibt es fertigen Code, den du in dein Programm einbindest.</p>
+
+  <h2>Zwei Arten von Bibliotheken</h2>
+  <div class="grid2">
+    <div class="box teal">
+      <div class="box-titel">Standardmodule</div>
+      <p><b>Sind in Python schon enthalten.</b> Du bindest sie mit <code>import</code> ein und kannst sie sofort nutzen.</p>
+      <p>Beispiele: <code>random</code>, <code>math</code>, <code>time</code>, <code>datetime</code>, <code>string</code></p>
+      <p class="klein">Für alle im Workshop. Mindestens ein Modul gehört in euer Programm.</p>
+    </div>
+    <div class="box purple">
+      <div class="box-titel">Externe Pakete (pip)</div>
+      <p><b>Musst du vorher installieren.</b> Sie kommen aus dem Python Package Index (PyPI), einer Sammlung von über 500.000 Paketen.</p>
+      <p>Beispiele: <code>rich</code>, <code>pyfiglet</code>, <code>pygame</code></p>
+      <p class="klein">Exkurs für Fortgeschrittene, siehe nächste Seite.</p>
+    </div>
+  </div>
+
+  <h2>So bindest du ein Modul ein</h2>
+<pre class="py">import random                    # ganzes Modul: random.randint(1, 6)
+from random import randint       # nur eine Funktion: randint(1, 6)
+import datetime as dt            # mit Kurznamen: dt.date.today()</pre>
+  <p>Am verständlichsten ist meist die erste Form. Man sieht beim Lesen sofort, woher eine Funktion kommt.</p>
+
+  <h2>Nützliche Standardmodule</h2>
+  <table>
+    <thead><tr><th style="width:24mm">Modul</th><th style="width:66mm">Beispiel</th><th>Wofür</th></tr></thead>
+    <tbody>
+      <tr><td><code>random</code></td><td><code>random.randint(1, 6)</code><br><code>random.choice(liste)</code><br><code>random.shuffle(liste)</code></td><td>Zufallszahl, zufälliges Element, Liste mischen</td></tr>
+      <tr><td><code>math</code></td><td><code>math.sqrt(16)</code> · <code>math.ceil(4.2)</code></td><td>Wurzel, Aufrunden, <code>math.pi</code></td></tr>
+      <tr><td><code>time</code></td><td><code>time.sleep(1)</code></td><td>Eine Sekunde warten, z. B. für Spannung im Spiel</td></tr>
+      <tr><td><code>datetime</code></td><td><code>date.today()</code> nach<br><code>from datetime import date</code></td><td>Heutiges Datum, mit Daten rechnen</td></tr>
+      <tr><td><code>string</code></td><td><code>string.ascii_letters</code><br><code>string.digits</code></td><td>Fertige Zeichenvorräte, z. B. für Passwörter</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box grau">
+    <div class="box-titel">Selbst nachschlagen</div>
+    <p><code>help(random.randint)</code> in der Python-Konsole zeigt die Beschreibung einer Funktion. Alle Standardmodule sind unter <b>docs.python.org/3/library</b> beschrieben. In PyCharm zeigt <code>Strg + Q</code> (macOS: <code>F1</code>) die Doku zu der Funktion unter dem Cursor.</p>
+  </div>
+  <p class="klein">Beispielprogramm im Repository: <code>beispiele/01_standardmodule.py</code></p>
+</section>
+
+<section class="teil anhang" id="anhang-g2">
+  <div class="kicker">Anhang G · Exkurs für Fortgeschrittene</div>
+  <h1>Externe Pakete mit pip</h1>
+  <p class="lead">pip ist das Installationsprogramm für Python-Pakete. Es lädt ein Paket aus dem Python Package Index und installiert es für deinen Python-Interpreter.</p>
+
+  <h2>Ein Paket installieren</h2>
+  <div class="grid2">
+    <div class="box grau">
+      <div class="box-titel">In PyCharm</div>
+      <p>Unten links das Fenster <b>Python Packages</b> öffnen, den Paketnamen suchen, z. B. <code>rich</code>, und auf <b>Install</b> klicken.</p>
+      <p class="klein">Alternativ: <b>Settings &gt; Project &gt; Python Interpreter</b>, dann auf <b>+</b> klicken.</p>
+    </div>
+    <div class="box grau">
+      <div class="box-titel">Im Terminal (auch in PyCharm unten)</div>
+<pre class="terminal" style="margin-bottom:1mm">py -m pip install rich</pre>
+      <p class="klein">macOS: <code>python3 -m pip install rich</code><br>Prüfen, was installiert ist: <code>py -m pip list</code></p>
+    </div>
+  </div>
+
+  <h2>Ein Paket nutzen</h2>
+<pre class="py">from rich.console import Console
+
+konsole = Console()
+konsole.print("Hallo [bold green]Workshop[/bold green]!")</pre>
+  <p class="klein">Beispielprogramm mit Tabelle im Repository: <code>beispiele/02_pip_rich.py</code></p>
+
+  <h2>Pakete für eure Projekte</h2>
+  <table>
+    <thead><tr><th style="width:26mm">Paket</th><th>Wofür</th></tr></thead>
+    <tbody>
+      <tr><td><code>rich</code></td><td>Farbige Ausgaben, Tabellen und Fortschrittsbalken in der Konsole</td></tr>
+      <tr><td><code>pyfiglet</code></td><td>Große Überschriften aus Textzeichen, z. B. für einen Spieletitel</td></tr>
+      <tr><td><code>colorama</code></td><td>Einfache Textfarben in der Konsole, auch unter Windows</td></tr>
+      <tr><td><code>pygame</code></td><td>Spiele mit Grafik und Tastatursteuerung. Nur für sehr Fortgeschrittene.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box orange">
+    <div class="box-titel">Darauf musst du achten</div>
+    <ul>
+      <li><b>Alle im Team brauchen das Paket.</b> Notiert es in einer Datei <code>requirements.txt</code> im Projektordner, ein Paket pro Zeile. Dann installiert jede Person alles mit <code>py -m pip install -r requirements.txt</code>.</li>
+      <li><b>Nur bekannte Pakete installieren.</b> Achte auf die genaue Schreibweise. Es gibt gefälschte Pakete mit ähnlichen Namen.</li>
+      <li><b>Klappt die Installation nicht</b>, zum Beispiel wegen des Firmennetzes, frag den Ausbilder. Bastle nicht an den Netzwerkeinstellungen.</li>
+      <li>PyCharm legt für jedes Projekt eine eigene Umgebung an (<code>.venv</code>). Ein Paket, das du in einem Projekt installierst, fehlt deshalb im nächsten Projekt.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ ANHANG H -->
+<section class="teil anhang" id="anhang-h">
+  <div class="kicker">Anhang H · Exkurs für Fortgeschrittene</div>
+  <h1>Dateien und Datenströme</h1>
+  <p class="lead">Bisher vergisst euer Programm alles, sobald es endet. Mit Dateien bleiben Daten erhalten: Highscores, Inventar, Tickets.</p>
+
+  <h2>Die Idee: Daten fließen</h2>
+  <p>Ein Programm bekommt Daten von irgendwoher und gibt Daten irgendwohin ab. Man spricht von <b>Datenströmen</b>, weil die Daten Zeichen für Zeichen hinein- und hinausfließen. Bisher kennst du zwei Ströme. Dateien sind zwei weitere.</p>
+  <div class="flow">
+    <div class="station box grau" style="margin:0"><b>Eingabe</b>Tastatur mit <code>input()</code><br>oder Datei lesen</div>
+    <div class="pfeil">➜</div>
+    <div class="station box purple" style="margin:0"><b>Programm</b>verarbeitet die Daten in Variablen und Listen</div>
+    <div class="pfeil">➜</div>
+    <div class="station box grau" style="margin:0"><b>Ausgabe</b>Bildschirm mit <code>print()</code><br>oder Datei schreiben</div>
+  </div>
+  <p>Der Unterschied: Was auf dem Bildschirm steht, ist nach dem Programmende weg. Was in einer Datei auf der Festplatte steht, bleibt.</p>
+
+  <h2>Eine Datei öffnen</h2>
+<pre class="py">with open("notizen.txt", "r", encoding="utf-8") as datei:
+    inhalt = datei.read()
+print(inhalt)</pre>
+  <ul>
+    <li><code>open()</code> öffnet die Datei und gibt ein Dateiobjekt zurück. Hier heißt es <code>datei</code>.</li>
+    <li><code>with … as …:</code> sorgt dafür, dass die Datei am Ende des eingerückten Blocks automatisch geschlossen wird, auch wenn ein Fehler passiert.</li>
+    <li><code>encoding="utf-8"</code> sorgt dafür, dass Umlaute auf jedem Rechner richtig ankommen.</li>
+  </ul>
+  <table>
+    <thead><tr><th style="width:18mm">Modus</th><th style="width:30mm">Bedeutung</th><th>Achtung</th></tr></thead>
+    <tbody>
+      <tr><td><code>"r"</code></td><td>lesen (read)</td><td>Fehler, wenn die Datei nicht existiert</td></tr>
+      <tr><td><code>"w"</code></td><td>schreiben (write)</td><td>Legt die Datei neu an. Vorhandener Inhalt wird gelöscht!</td></tr>
+      <tr><td><code>"a"</code></td><td>anhängen (append)</td><td>Schreibt ans Ende, legt die Datei bei Bedarf an</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="teil anhang" id="anhang-h2">
+  <div class="kicker">Anhang H · Basics</div>
+  <h1>Dateien: die Grundlagen zum Nachschlagen</h1>
+  <p class="lead">Die wichtigsten Bausteine. Alle Beispiele findest du lauffähig im Ordner <code>beispiele</code>.</p>
+
+  <h3>Schreiben, anhängen und lesen</h3>
+<pre class="py">import os
+
+DATEI = "liste.txt"
+
+with open(DATEI, "w", encoding="utf-8") as datei:     # neu anlegen
+    datei.write("Laptop\n")
+    datei.write("Headset\n")
+
+with open(DATEI, "a", encoding="utf-8") as datei:     # ans Ende anhängen
+    datei.write("Maus\n")
+
+geraete = []
+if os.path.exists(DATEI):                             # gibt es die Datei?
+    with open(DATEI, "r", encoding="utf-8") as datei:
+        for zeile in datei:
+            geraete.append(zeile.strip())
+print(geraete)                                        # ['Laptop', 'Headset', 'Maus']</pre>
+  <ul class="klein">
+    <li><code>write()</code> macht keinen Zeilenumbruch. Den schreibst du selbst mit <code>\n</code>. Zahlen wandelst du vorher mit <code>str()</code> um.</li>
+    <li><code>strip()</code> entfernt beim Lesen den Zeilenumbruch am Ende jeder Zeile.</li>
+    <li><code>os.path.exists()</code> prüft vorher, ob es die Datei gibt. Sonst bricht <code>"r"</code> mit einem Fehler ab.</li>
+  </ul>
+
+  <h3>Mehrere Werte pro Zeile: Trennzeichen</h3>
+  <p>Speichere zusammengehörige Werte in einer Zeile, getrennt durch ein Semikolon. Beim Lesen zerlegt <code>split(";")</code> die Zeile wieder in eine Liste.</p>
+<pre class="py">def speichere_highscore(name, punkte):
+    with open("highscores.txt", "a", encoding="utf-8") as datei:
+        datei.write(name + ";" + str(punkte) + "\n")
+
+# Zeile in der Datei:  Ada;42
+teile = "Ada;42".split(";")       # ['Ada', '42']
+punkte = int(teile[1])            # 42</pre>
+  <p class="klein">Ganzes Beispiel mit Laden und Anzeigen: <code>beispiele/04_highscore.py</code>. Für Listen mit Dictionaries gibt es das Modul <code>json</code>: <code>beispiele/05_json_speichern.py</code>.</p>
+
+  <h3>Typische Stolpersteine</h3>
+  <table>
+    <thead><tr><th style="width:56mm">Problem</th><th>Ursache und Lösung</th></tr></thead>
+    <tbody>
+      <tr><td><code>FileNotFoundError</code></td><td>Die Datei gibt es (noch) nicht, oder sie liegt in einem anderen Ordner. Vorher mit <code>os.path.exists()</code> prüfen.</td></tr>
+      <tr><td>Datei ist plötzlich leer</td><td>Mit <code>"w"</code> statt <code>"a"</code> geöffnet. <code>"w"</code> löscht den alten Inhalt.</td></tr>
+      <tr><td>Alles steht in einer Zeile</td><td><code>\n</code> am Ende von <code>write()</code> vergessen.</td></tr>
+      <tr><td>Umlaute sehen kaputt aus</td><td><code>encoding="utf-8"</code> fehlt beim Schreiben oder Lesen.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ ANHANG I -->
+<section class="teil anhang" id="anhang-i">
+  <div class="kicker">Anhang I · Exkurs für Fortgeschrittene</div>
+  <h1>Grafische Oberflächen mit tkinter</h1>
+  <p class="lead">Statt Text im Terminal: ein Fenster mit Eingabefeldern und Knöpfen. tkinter ist in Python enthalten und reicht für kleine Werkzeuge und Spiele.</p>
+
+  <h2>Die Idee: Das Programm wartet auf Ereignisse</h2>
+  <div class="grid2">
+    <div class="box grau">
+      <div class="box-titel">Konsolenprogramm</div>
+      <p>Das Programm bestimmt den Ablauf. Es läuft von oben nach unten und wartet bei <code>input()</code>, bis du etwas eingibst.</p>
+    </div>
+    <div class="box purple">
+      <div class="box-titel">Programm mit Oberfläche</div>
+      <p>Die Nutzerin oder der Nutzer bestimmt den Ablauf. Das Programm baut das Fenster auf und wartet dann in <code>mainloop()</code> auf <b>Ereignisse</b>, zum Beispiel einen Klick. Bei einem Klick ruft es die Funktion auf, die zu diesem Knopf gehört.</p>
+    </div>
+  </div>
+
+  <h2>Ein erstes Fenster</h2>
+<pre class="py">import tkinter as tk
+
+
+def begruessen():
+    name = eingabe.get()
+    ausgabe.config(text="Hallo " + name + "!")
+
+
+fenster = tk.Tk()
+fenster.title("Mein erstes Fenster")
+
+tk.Label(fenster, text="Wie heißt du?").pack(padx=20, pady=(20, 5))
+eingabe = tk.Entry(fenster)
+eingabe.pack(padx=20)
+tk.Button(fenster, text="Begrüßen", command=begruessen).pack(pady=10)
+ausgabe = tk.Label(fenster, text="")
+ausgabe.pack(padx=20, pady=(0, 20))
+
+fenster.mainloop()</pre>
+  <ol>
+    <li><code>tk.Tk()</code> erzeugt das Fenster.</li>
+    <li>Jedes Element (Widget) bekommt das Fenster als ersten Parameter. <code>pack()</code> setzt es untereinander ins Fenster.</li>
+    <li><code>command=begruessen</code> verbindet den Knopf mit der Funktion. <b>Ohne Klammern!</b> Mit Klammern würde die Funktion sofort einmal aufgerufen.</li>
+    <li><code>fenster.mainloop()</code> zeigt das Fenster und wartet auf Ereignisse. Code danach läuft erst, wenn das Fenster geschlossen ist.</li>
+  </ol>
+  <p class="klein">Lauffähig im Repository: <code>beispiele/06_gui_minimal.py</code></p>
+</section>
+
+<section class="teil anhang" id="anhang-i2">
+  <div class="kicker">Anhang I · Basics</div>
+  <h1>tkinter: die Grundlagen zum Nachschlagen</h1>
+  <p class="lead">Die wichtigsten Widgets und ein Tipp, der dir viel Arbeit spart.</p>
+
+  <h3>Wichtige Widgets</h3>
+  <table>
+    <thead><tr><th style="width:30mm">Widget</th><th style="width:72mm">Erzeugen</th><th>Wofür</th></tr></thead>
+    <tbody>
+      <tr><td><code>Label</code></td><td><code>tk.Label(fenster, text="…")</code></td><td>Text anzeigen. Ändern mit <code>.config(text="…")</code></td></tr>
+      <tr><td><code>Entry</code></td><td><code>tk.Entry(fenster, width=10)</code></td><td>Einzeiliges Eingabefeld. Lesen mit <code>.get()</code>, liefert immer einen <code>str</code></td></tr>
+      <tr><td><code>Button</code></td><td><code>tk.Button(fenster, text="OK", command=f)</code></td><td>Knopf, ruft beim Klick die Funktion <code>f</code> auf</td></tr>
+      <tr><td><code>Listbox</code></td><td><code>tk.Listbox(fenster)</code></td><td>Liste anzeigen. Einfügen mit <code>.insert(tk.END, "…")</code></td></tr>
+      <tr><td><code>messagebox</code></td><td><code>messagebox.showinfo("Titel", "Text")</code></td><td>Hinweisfenster. Vorher: <code>from tkinter import messagebox</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Anordnen mit grid()</h3>
+  <p>Statt <code>pack()</code> kannst du Widgets mit <code>grid(row=0, column=1)</code> in Zeilen und Spalten anordnen, zum Beispiel Beschriftung links und Eingabefeld rechts. Verwende in einem Fenster entweder <code>pack()</code> oder <code>grid()</code>, nicht beides. Ein vollständiges Beispiel mit <code>grid()</code> steht in <code>beispiele/07_gui_passwort.py</code>.</p>
+
+  <div class="box purple">
+    <div class="box-titel">Der wichtigste Tipp: Logik und Oberfläche trennen</div>
+    <p>Programmiere dein Feature zuerst als Konsolenversion mit einer Funktion, die etwas berechnet und mit <code>return</code> zurückgibt. Die Oberfläche ruft dann nur noch diese Funktion auf. So kannst du die Logik ohne Fenster testen und deine bisherige Arbeit weiterverwenden.</p>
+  </div>
+<pre class="py">def erzeuge_passwort(laenge):          # Logik: kennt kein Fenster
+    ...
+    return passwort
+
+
+def knopf_geklickt():                  # Oberfläche: liest, ruft auf, zeigt an
+    laenge = int(eingabe_laenge.get())
+    ausgabe.config(text=erzeuge_passwort(laenge))</pre>
+  <p class="klein">Vollständiger Passwort-Generator mit Prüfung der Eingabe: <code>beispiele/07_gui_passwort.py</code></p>
+
+  <h3>Typische Stolpersteine</h3>
+  <table>
+    <thead><tr><th style="width:62mm">Problem</th><th>Ursache und Lösung</th></tr></thead>
+    <tbody>
+      <tr><td>Funktion läuft sofort beim Start, Klick tut nichts</td><td><code>command=f()</code> statt <code>command=f</code></td></tr>
+      <tr><td>Fenster erscheint nicht</td><td><code>fenster.mainloop()</code> fehlt am Ende</td></tr>
+      <tr><td>Rechnen mit der Eingabe klappt nicht</td><td><code>.get()</code> liefert Text. Mit <code>int()</code> umwandeln</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<script>
+/* Seitenzahlen aus seiten.js eintragen (wird von build.py erzeugt) */
+(function () {
+  var seiten = window.SEITEN || {};
+  document.querySelectorAll('[data-ref]').forEach(function (el) {
+    el.textContent = seiten[el.getAttribute('data-ref')] || '';
+  });
+  document.querySelectorAll('[data-seiten="gesamt"]').forEach(function (el) {
+    if (seiten.gesamt) el.textContent = seiten.gesamt;
+  });
+})();
+
+/* Einfache Syntaxhervorhebung für Python-Code */
+(function () {
+  var muster = /("""[\s\S]*?"""|'''[\s\S]*?''')|(#[^\n]*)|("(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*')|\b(def|return|if|elif|else|while|for|in|import|from|as|with|not|and|or|True|False|None|pass|break)\b|\b(print|input|int|str|float|len|range|open|type)\b(?=\()|\b(\d+(?:\.\d+)?)\b/g;
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  document.querySelectorAll('pre.py').forEach(function (pre) {
+    var text = pre.textContent, out = '', last = 0, m;
+    muster.lastIndex = 0;
+    while ((m = muster.exec(text)) !== null) {
+      out += esc(text.slice(last, m.index));
+      var cls = m[1] ? 's' : m[2] ? 'c' : m[3] ? 's' : m[4] ? 'k' : m[5] ? 'f' : 'n';
+      out += '<span class="' + cls + '">' + esc(m[0]) + '</span>';
+      last = muster.lastIndex;
+    }
+    pre.innerHTML = out + esc(text.slice(last));
+  });
+})();
+</script>
+</body>
+</html>
