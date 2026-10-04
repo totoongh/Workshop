@@ -9,7 +9,7 @@ Ablauf:
    Seitenzahlen in seiten.js und druckt erneut (Inhaltsverzeichnis).
 3. Die Platzhalterseiten für Anhang A werden durch die Originalseiten von
    „Programmieren mit System“ ersetzt.
-4. Steckbrief, Bögen und Checkliste werden als einzelne PDFs gespeichert.
+4. Checkliste, Bögen und Reflexion werden als einzelne PDFs gespeichert.
 """
 import json
 import re
@@ -32,9 +32,9 @@ VORLAGEN = REPO / "vorlagen"
 # Dateiname -> Abschnitte (ids), die in die Einzelvorlage kommen
 EINZELVORLAGEN = {
     "Checkliste.pdf": ["checkliste"],
-    "Steckbrief-und-Mein-Feature.pdf": ["anhang-b", "anhang-b2"],
-    "Bogen-Zwischenreview.pdf": ["anhang-c"],
-    "Bogen-Praesentation.pdf": ["anhang-d"],
+    "Bogen-Zwischenreview.pdf": ["bogen-review"],
+    "Bogen-Praesentation.pdf": ["bogen-praesentation"],
+    "Reflexion.pdf": ["reflexion"],
 }
 
 CHROME_KANDIDATEN = [
@@ -71,20 +71,28 @@ def drucke(chrome, ziel):
 
 
 def normalisiere(text):
-    return re.sub(r"[\s\u00ad\-–]+", "", text)
+    return re.sub(r"[\s\u00ad\-–]+", "", text).lower()
 
 
 def abschnitte():
-    """Liefert [(id, Suchtext)] in der Reihenfolge des Dokuments."""
+    """Liefert [(id, Suchtext)] in der Reihenfolge des Dokuments.
+
+    Gesucht wird nach Kicker und Überschrift zusammen, weil Wörter wie
+    „Zwischenreview“ auch im Fließtext anderer Seiten vorkommen.
+    """
     html = HTML.read_text(encoding="utf-8")
     ergebnis = []
-    muster = r'<section class="teil[^"]*" id="([\w-]+)">.*?<h1>(.*?)</h1>|<div class="einlage" id="([\w-]+)">(.*?)</div>'
+    muster = (
+        r'<section class="teil[^"]*" id="([\w-]+)">\s*<div class="kicker">(.*?)</div>\s*<h1>(.*?)</h1>'
+        r'|<div class="einlage" id="([\w-]+)">(.*?)</div>'
+    )
     for m in re.finditer(muster, html, flags=re.S):
         if m.group(1):
-            titel = re.sub(r"<[^>]+>", "", m.group(2))
-            ergebnis.append((m.group(1), titel))
+            kicker = re.sub(r"<[^>]+>", "", m.group(2))
+            titel = re.sub(r"<[^>]+>", "", m.group(3))
+            ergebnis.append((m.group(1), kicker + titel))
         else:
-            ergebnis.append((m.group(3), m.group(4)))
+            ergebnis.append((m.group(4), m.group(5)))
     return ergebnis
 
 
@@ -94,11 +102,11 @@ def seitenzahlen(pdf):
     seiten = {}
     ab = 1  # Deckblatt (Index 0) überspringen, dort steht das Inhaltsverzeichnis
     for abschnitt_id, suchtext in abschnitte():
-        nadel = normalisiere(suchtext)[:40]
+        nadel = normalisiere(suchtext)[:60]
         for index in range(ab, len(texte)):
             if nadel in texte[index]:
                 seiten[abschnitt_id] = index + 1
-                ab = index + 1
+                ab = index
                 break
         else:
             sys.exit("Abschnitt nicht gefunden: " + abschnitt_id)
@@ -132,7 +140,7 @@ def main():
 
         leser = PdfReader(roh)
         anhang_a = PdfReader(ANHANG_A)
-        einlage_start = seiten["anhang-a"] - 1
+        einlage_start = seiten["system"] - 1
         schreiber = PdfWriter()
         for index, seite in enumerate(leser.pages):
             if einlage_start <= index < einlage_start + len(anhang_a.pages):
