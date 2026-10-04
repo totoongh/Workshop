@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workshop „Programmieren“ · Start</title>
+<link rel="stylesheet" href="styles.css">
+<script src="slides.js" defer></script>
+<script src="deck.js" defer></script>
+</head>
+<body>
+  <main id="buehne" aria-label="Präsentation">
+    <div id="folien"></div>
+  </main>
+
+  <footer class="leiste">
+    <span id="zaehler">1 / 1</span>
+    <span id="kapitel"></span>
+    <span class="werkzeuge">
+      <button id="btn-uebersicht" title="Übersicht (O)">Übersicht <kbd>O</kbd></button>
+      <button id="btn-notizen" title="Notizen (N)">Notizen <kbd>N</kbd></button>
+      <button id="btn-vollbild" title="Vollbild (F)">Vollbild <kbd>F</kbd></button>
+      <button id="btn-zurueck" aria-label="Zurück">←</button>
+      <button id="btn-weiter" aria-label="Weiter">Weiter →</button>
+    </span>
+  </footer>
+  <div class="fortschritt"><div id="fortschritt"></div></div>
+
+  <aside id="notizen" hidden aria-label="Sprechernotizen">
+    <div class="notizen-kopf"><b>Sprechernotizen</b><button id="notizen-zu" aria-label="Schließen">×</button></div>
+    <p class="warnung">Beim Teilen des ganzen Bildschirms sind die Notizen sichtbar.</p>
+    <div id="notizen-text"></div>
+  </aside>
+
+  <div id="uebersicht" hidden>
+    <div class="uebersicht-kopf"><b>Alle Folien</b><button id="uebersicht-zu" aria-label="Schließen">×</button></div>
+    <ol id="uebersicht-liste"></ol>
+  </div>
+</body>
+</html>

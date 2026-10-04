@@ -11,6 +11,7 @@ In dieser Woche entwickelt ihr im Team ein eigenes Python-Programm: ein kleines 
 | [`Arbeitsauftrag.pdf`](Arbeitsauftrag.pdf) | Das Heft für die Woche, mit allen Anhängen |
 | [`projektvorlage/`](projektvorlage) | Startpunkt für euer Teamprojekt: `main.py` mit Menü und eine Vorlage für ein Feature |
 | [`beispiele/`](beispiele) | Lauffähige Beispiele zu den Anhängen F (Bibliotheken), G (Fehlerbehandlung), H (Dateien) und I (Oberflächen) |
+| [`praesentation/`](praesentation) | Präsentation zum Start des Workshops: `index.html` im Browser öffnen |
 | [`vorlagen/`](vorlagen) | Checkliste, die beiden Feedback-Bögen und die Reflexion als einzelne PDFs zum Drucken |
 | `quelle/` | Quelltext des Arbeitsauftrags. Braucht ihr nicht. |
 
@@ -134,6 +135,21 @@ Die Datei-Beispiele legen ihre Dateien (`notizen.txt`, `highscores.txt`, `geraet
 > **tkinter unter macOS:** Mit dem Python von python.org ist tkinter dabei. Mit Homebrew-Python fehlt es manchmal (`No module named '_tkinter'`), dann hilft `brew install python-tk`. Unter Windows ist tkinter immer dabei.
 
 ---
+
+## Für den Ausbilder: Präsentation
+
+`praesentation/index.html` im Browser öffnen, ohne Installation und ohne Internet.
+
+| Taste | Wirkung |
+|---|---|
+| Pfeil rechts, Leertaste, Klick | Nächste Einblendung, dann nächste Folie |
+| Pfeil links | Zurück |
+| O | Folienübersicht |
+| N | Sprechernotizen (beim Teilen des Bildschirms sichtbar!) |
+| F | Vollbild |
+| Esc | Notizen und Übersicht schließen |
+
+Folieninhalte stehen in `praesentation/slides.js`.
 
 ## Für den Ausbilder: Arbeitsauftrag neu erzeugen
 

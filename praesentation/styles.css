@@ -1,0 +1,150 @@
+:root {
+  --ink: #172027;
+  --muted: #56616a;
+  --line: #d3dadf;
+  --soft: #f4f6f7;
+  --teal: #087f82;
+  --teal-soft: #e5f2f2;
+  --purple: #6852a3;
+  --purple-soft: #eeeaf7;
+  --orange: #b65a21;
+  --orange-soft: #fbefe5;
+  --mono: Consolas, Menlo, "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #e4e8eb; color: var(--ink); font-family: Arial, Helvetica, sans-serif; overflow: hidden; }
+button { font: inherit; cursor: pointer; }
+kbd { font-family: var(--mono); font-size: 0.8em; border: 1px solid #c1c8cd; border-radius: 4px; padding: 0 4px; margin-left: 4px; color: var(--muted); }
+
+/* ---------- Bühne: feste 1600x900, skaliert ---------- */
+#buehne { position: fixed; inset: 0 0 48px 0; display: flex; align-items: center; justify-content: center; }
+#folien { width: 1600px; height: 900px; position: relative; transform-origin: center center; flex: none; }
+
+.folie {
+  position: absolute; inset: 0;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(23, 32, 39, 0.12);
+  padding: 70px 90px 60px;
+  display: flex; flex-direction: column;
+  font-size: 30px; line-height: 1.4;
+}
+.folie[hidden] { display: none; }
+
+.kicker { font-size: 20px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+.kicker::before { content: ""; display: block; width: 56px; height: 7px; background: var(--teal); margin-bottom: 18px; }
+h1 { font-size: 72px; line-height: 1.1; margin: 0 0 20px; letter-spacing: -0.01em; }
+h2 { font-size: 54px; line-height: 1.15; margin: 0 0 18px; letter-spacing: -0.01em; }
+h3 { font-size: 30px; margin: 0 0 8px; }
+p { margin: 0 0 14px; }
+.lead { font-size: 30px; color: var(--muted); max-width: 1300px; margin-bottom: 30px; }
+.inhalt { flex: 1; min-height: 0; }
+.klein { font-size: 22px; color: var(--muted); }
+code { font-family: var(--mono); font-size: 0.9em; background: var(--soft); border-radius: 5px; padding: 1px 7px; }
+ul { margin: 0; padding-left: 34px; }
+li { margin-bottom: 10px; }
+
+/* ---------- Einblendungen ---------- */
+.schritt { transition: opacity 0.25s, transform 0.25s; }
+.schritt.versteckt { opacity: 0; transform: translateY(10px); pointer-events: none; }
+
+/* ---------- Bausteine ---------- */
+.raster2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.raster3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.raster4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.karte { border-radius: 16px; padding: 26px 30px; background: var(--soft); }
+.karte.teal { background: var(--teal-soft); }
+.karte.purple { background: var(--purple-soft); }
+.karte.orange { background: var(--orange-soft); }
+.karte.rahmen { background: white; border: 2px solid var(--line); }
+.karte-titel { font-size: 19px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; color: var(--muted); }
+.teal .karte-titel { color: var(--teal); }
+.purple .karte-titel { color: var(--purple); }
+.orange .karte-titel { color: var(--orange); }
+.karte p:last-child, .karte ul:last-child { margin-bottom: 0; }
+
+.nr { width: 52px; height: 52px; border-radius: 12px; background: var(--teal); color: white; font-weight: bold; font-size: 28px; display: flex; align-items: center; justify-content: center; flex: none; }
+.purple .nr, .nr.purple { background: var(--purple); }
+.liste-nr { display: grid; gap: 18px; }
+.liste-nr.zwei { grid-template-columns: 1fr 1fr; gap: 20px 50px; }
+.punkt { display: flex; gap: 22px; align-items: flex-start; }
+.punkt h3 { margin: 6px 0 4px; }
+.punkt p { margin: 0; font-size: 25px; color: var(--muted); }
+
+.stufe { display: inline-block; font-size: 17px; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 6px; padding: 3px 12px; vertical-align: 4px; }
+.stufe.b { background: var(--teal-soft); color: var(--teal); border: 2px solid var(--teal); }
+.stufe.a { background: var(--orange-soft); color: var(--orange); border: 2px solid var(--orange); }
+.stufe.p { background: var(--purple-soft); color: var(--purple); border: 2px solid var(--purple); }
+
+pre { font-family: var(--mono); font-size: 23px; line-height: 1.45; background: var(--soft); border-left: 8px solid var(--teal); border-radius: 0 12px 12px 0; padding: 22px 28px; margin: 0; white-space: pre; }
+pre.terminal { background: #1f262c; color: #eef2f4; border-left-color: #56616a; }
+pre .k { color: #6a3fa0; font-weight: bold; }
+pre .s { color: #18794e; }
+pre .c { color: #7b858c; font-style: italic; }
+
+table { width: 100%; border-collapse: collapse; font-size: 25px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 2px solid var(--line); vertical-align: top; }
+th { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom-width: 3px; }
+td.tag { font-weight: bold; white-space: nowrap; }
+td.zeit { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
+tr.extern td { color: var(--muted); font-style: italic; }
+tr.neu td { border-top: 3px solid #b8c1c7; }
+table.kompakt { font-size: 23px; }
+table.kompakt td, table.kompakt th { padding: 8px 14px; }
+.titel .untertitel { line-height: 1.35; }
+
+/* Ablaufband */
+.band { display: flex; gap: 14px; align-items: stretch; margin-top: 20px; }
+.band .station { flex: 1; border-radius: 16px; padding: 24px 22px; background: var(--soft); font-size: 24px; }
+.band .station b { display: block; font-size: 28px; margin-bottom: 6px; }
+.band .pfeil { display: flex; align-items: center; color: #9aa5ad; font-size: 34px; }
+
+/* Teams */
+.team { border-radius: 18px; padding: 30px 34px; border: 3px solid var(--teal); }
+.team:nth-child(2) { border-color: var(--purple); }
+.team:nth-child(3) { border-color: var(--orange); }
+.team h3 { font-size: 26px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+.team:nth-child(2) h3 { color: var(--purple); }
+.team:nth-child(3) h3 { color: var(--orange); }
+.team ul { list-style: none; padding: 0; font-size: 40px; font-weight: bold; }
+.team li { margin-bottom: 8px; }
+
+/* Titelfolie */
+.titel { justify-content: center; }
+.titel .logo { position: absolute; top: 60px; right: 90px; height: 70px; }
+.titel h1 { font-size: 96px; }
+.titel .untertitel { font-size: 40px; color: var(--muted); margin-bottom: 40px; }
+.titel .linie { width: 120px; height: 10px; background: var(--teal); margin-bottom: 40px; }
+
+.zentriert { justify-content: center; align-items: flex-start; }
+.gross { font-size: 44px; line-height: 1.35; }
+
+/* ---------- Leiste ---------- */
+.leiste { position: fixed; left: 0; right: 0; bottom: 0; height: 48px; display: flex; align-items: center; gap: 18px; padding: 0 18px; background: white; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+#kapitel { flex: 1; }
+.werkzeuge { display: flex; gap: 8px; }
+.werkzeuge button { border: 1px solid var(--line); background: white; border-radius: 6px; padding: 5px 12px; color: var(--ink); font-size: 14px; }
+#btn-weiter { background: var(--teal); border-color: var(--teal); color: white; }
+.fortschritt { position: fixed; left: 0; right: 0; bottom: 48px; height: 3px; background: transparent; }
+#fortschritt { height: 100%; background: var(--teal); width: 0; transition: width 0.2s; }
+
+/* ---------- Notizen ---------- */
+#notizen { position: fixed; top: 0; right: 0; bottom: 48px; width: 420px; background: white; border-left: 1px solid var(--line); padding: 18px 22px; overflow: auto; font-size: 16px; line-height: 1.5; box-shadow: -10px 0 30px rgba(0,0,0,0.08); }
+.notizen-kopf, .uebersicht-kopf { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.notizen-kopf button, .uebersicht-kopf button { border: 0; background: none; font-size: 26px; color: var(--muted); }
+.warnung { font-size: 13px; color: var(--orange); margin-bottom: 14px; }
+#notizen-text h4 { margin: 0 0 8px; font-size: 18px; }
+
+/* ---------- Übersicht ---------- */
+#uebersicht { position: fixed; inset: 40px; bottom: 88px; background: white; border-radius: 12px; padding: 22px 28px; overflow: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.25); z-index: 10; }
+#uebersicht-liste { columns: 2; font-size: 16px; margin: 0; padding-left: 26px; }
+#uebersicht-liste li { margin-bottom: 6px; break-inside: avoid; }
+#uebersicht-liste a { color: var(--ink); text-decoration: none; }
+#uebersicht-liste a:hover { color: var(--teal); }
+#uebersicht-liste .kap { color: var(--muted); font-size: 13px; }
+
+@media print {
+  html, body { overflow: visible; background: white; }
+  .leiste, .fortschritt, #notizen, #uebersicht { display: none !important; }
+}
